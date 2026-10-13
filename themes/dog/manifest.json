@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "dog",
+  "name": "玉桂狗",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "Cinnamoroll 天空蓝：云朵与长耳朵，清爽的浅蓝白玻璃。",
+  "accent": "#4FA8E8",
+  "accentSecondary": "#B7E0F6",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

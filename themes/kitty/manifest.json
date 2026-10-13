@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "kitty",
+  "name": "Hello Kitty",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "三丽鸥的粉色 Kitty：蝴蝶结与爱心、超圆角、粉白奶油配色。",
+  "accent": "#C2185B",
+  "accentSecondary": "#F2A0BE",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

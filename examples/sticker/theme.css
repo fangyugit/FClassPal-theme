@@ -1,0 +1,160 @@
+/* ============================================================================
+ * FClassPal 主题包 · 带素材示例（example-sticker）
+ * ----------------------------------------------------------------------------
+ * 在 minimal 的基础上多演示三件事：
+ *   1. 素材引用：url("assets/badge.png") —— 只写这个相对路径，
+ *      导入后本体会改写成绝对 file:/// 路径；素材缺失时自动变 none；
+ *   2. 贴纸位：把 PNG 挂在伪元素上（::before / ::after），pointer-events:none；
+ *   3. 内联 SVG data-URL：不想带文件时的小图形这么写。
+ * 素材在 assets/（由 tools/make-example-assets.py 生成，可直接替换）。
+ * ==========================================================================*/
+
+/* ---------- token ---------- */
+body.theme-example-sticker {
+  --t-r-win: 26px; --t-r-card: 20px; --t-r-ctl: 14px; --t-r-small: 10px;
+  --t-btn-r: 999px;
+  --t-blur: blur(22px) saturate(135%);
+  --t-surface: rgb(247 249 255 / 0.88);
+  --t-surface-2: rgb(255 255 255 / 0.74);
+  --t-surface-3: rgb(235 241 254 / 0.92);
+  --t-accent: #5F84F0;
+  --t-on-accent: #FFFFFF;
+  --t-accent-c: 95 132 240;
+  --t-on-accent-c: 255 255 255;
+  --t-line: rgb(95 132 240 / 0.15);
+  --t-veil-border: rgb(255 255 255 / 0.66);
+  --t-veil-shadow: 0 12px 30px rgb(70 105 200 / 0.17);
+  --t-shadow-hover: 0 8px 20px rgb(70 105 200 / 0.20);
+  --t-shadow-menu: 0 14px 34px rgb(35 60 130 / 0.24);
+  --t-ease: cubic-bezier(0.2, 0, 0, 1);
+  --t-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --t-dur: 260ms; --t-dur-mid: 160ms; --t-stagger: 40ms;
+  --t-fw-title: 600; --t-fw-name: 500; --t-fw-btn: 600;
+
+  --md3-primary: #5F84F0;            --md3-primary-rgb: 95 132 240;
+  --md3-primary-container: #DEE7FE;  --md3-primary-container-rgb: 222 231 254;
+  --md3-on-primary: #FFFFFF;         --md3-on-primary-rgb: 255 255 255;
+  --md3-secondary: #96ADEF;          --md3-secondary-rgb: 150 173 239;
+  --md3-tertiary: #7B9CF5;           --md3-tertiary-rgb: 123 156 245;
+  --md3-surface: #F7F9FF;            --md3-surface-rgb: 247 249 255;
+  --md3-surface-dim: #E5EBF8;
+  --md3-surface-container: #EEF2FC;  --md3-surface-container-rgb: 238 242 252;
+  --md3-on-surface: #191E2B;         --md3-on-surface-rgb: 25 30 43;
+  --md3-on-surface-variant: #59617A; --md3-on-surface-variant-rgb: 89 97 122;
+  --md3-outline: #C1CBE2;            --md3-outline-variant: #E1E7F4;
+  --md3-error: #D96462;              --md3-error-rgb: 217 100 98;
+  --md3-on-error: #FFFFFF;
+  --danger: #D96462;
+}
+
+/* ---------- 窗口 / 面纱 ----------
+ * --t-veil 与 background 必须同一条规则（放 token 块里整条 background 会作废）。 */
+body.theme-example-sticker .widget {
+  border-radius: var(--t-r-win);
+  box-shadow: var(--t-veil-shadow);
+}
+
+body.theme-example-sticker .glass-veil {
+  --t-veil: linear-gradient(165deg,
+              rgb(255 255 255 / calc(0.86 + 0.14 * var(--glass-alpha))) 0%,
+              rgb(240 245 255 / calc(0.74 + 0.26 * var(--glass-alpha))) 100%);
+  background: var(--t-veil);
+  border: 1px solid var(--t-veil-border);
+  backdrop-filter: var(--t-blur);
+  -webkit-backdrop-filter: var(--t-blur);
+}
+
+/* ---------- 贴纸位（示例的核心）----------
+ * 写法要点：content 必写；pointer-events:none 防止挡住点击；
+ * absolute 挂在相对定位的容器上，位置用 right/top，别动容器的 position。 */
+
+/* 1) 标题栏左上角的徽章（素材文件） */
+body.theme-example-sticker .titlebar::after {
+  content: ""; position: absolute; left: 10px; top: 4px;
+  width: 26px; height: 26px;
+  background: url("assets/badge.png") no-repeat center / contain;
+  pointer-events: none;
+}
+
+/* 2) 主区右下角的闪光（素材文件） */
+body.theme-example-sticker .widget::after {
+  content: ""; position: absolute; right: 10px; bottom: 8px;
+  width: 34px; height: 34px;
+  background: url("assets/sparkle.png") no-repeat center / contain;
+  pointer-events: none;
+}
+
+/* 3) 分组标题前的小图形（内联 SVG data-URL：小圆点加高光） */
+body.theme-example-sticker .group-title::before {
+  content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 6px;
+  vertical-align: -2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='5' fill='%235F84F0'/%3E%3Ccircle cx='4.2' cy='4.2' r='1.6' fill='white' opacity='0.85'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* ---------- 深色模式（条件状态示例）---------- */
+body.dark.theme-example-sticker {
+  --t-surface: rgb(23 30 46 / 0.82);
+  --t-surface-2: rgb(36 46 68 / 0.74);
+  --t-surface-3: rgb(46 58 84 / 0.88);
+  --t-line: rgb(169 190 255 / 0.16);
+  --t-veil-border: rgb(255 255 255 / 0.13);
+  --t-veil-shadow: 0 12px 30px rgb(4 8 20 / 0.5);
+}
+
+/* ---------- 列表与按钮（详见 minimal 示例的注释）---------- */
+body.theme-example-sticker .item {
+  border-radius: var(--t-r-card);
+  background: var(--t-surface-2);
+  border: 1px solid var(--t-line);
+  transition: transform var(--t-dur-mid) var(--t-ease), box-shadow var(--t-dur-mid) var(--t-ease);
+}
+body.theme-example-sticker .item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--t-shadow-hover);
+  border-color: rgb(var(--t-accent-c) / 0.35);
+}
+body.theme-example-sticker .item:active { transform: scale(0.98); background: var(--t-surface-3); }
+body.theme-example-sticker .item-icon {
+  border-radius: var(--t-r-small);
+  background: rgb(var(--t-accent-c) / 0.12);
+  color: var(--t-accent);
+}
+
+body.theme-example-sticker .t-enter {
+  animation: t-in-example-sticker var(--t-dur) var(--t-ease) backwards;
+  animation-delay: calc(var(--i, 0) * var(--t-stagger));
+}
+@keyframes t-in-example-sticker {
+  from { opacity: 0; transform: translateY(6px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+body.theme-example-sticker .primary-btn,
+body.theme-example-sticker .ghost-btn,
+body.theme-example-sticker .danger-btn,
+body.theme-example-sticker .pick-btn,
+body.theme-example-sticker .text-btn,
+body.theme-example-sticker .size-controls button {
+  border-radius: var(--t-btn-r);
+  font-weight: var(--t-fw-btn);
+}
+body.theme-example-sticker .primary-btn { background: var(--t-accent); color: var(--t-on-accent); border: none; }
+body.theme-example-sticker .ghost-btn { background: rgb(var(--t-accent-c) / 0.10); color: var(--t-accent); }
+body.theme-example-sticker .danger-btn { background: var(--danger); color: #fff; }
+
+body.theme-example-sticker .panel,
+body.theme-example-sticker .ctx-menu,
+body.theme-example-sticker .modal-card {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-r-card);
+}
+body.theme-example-sticker .ctx-item { border-radius: var(--t-r-small); }
+body.theme-example-sticker .ctx-danger { color: var(--danger); }
+
+body.theme-example-sticker .toast {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-r-ctl);
+  box-shadow: var(--t-shadow-menu);
+}

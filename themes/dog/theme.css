@@ -1,0 +1,270 @@
+/* ============================================================
+ * FClassPal 主题包 · 玉桂狗（dog）
+ * Cinnamoroll 天空蓝：云朵与蝴蝶结，清爽的浅蓝白玻璃。
+ * ------------------------------------------------------------
+ * 打包规范见仓库 SPEC.md。本文件由本体 renderer/style.css 的对应主题段
+ * 剥离而来，选择器一律以 body.theme-dog 开头，装进应用后即插即用。
+ * 素材引号里写 assets/<文件名>，加载器会改写成应用内的绝对路径。
+ * ============================================================ */
+body.theme-dog{
+    --md3-dur-short1: 0.01ms; --md3-dur-short2: 0.01ms;
+    --md3-dur-short3: 0.01ms; --md3-dur-short4: 0.01ms;
+    --md3-dur-medium1: 0.01ms; --md3-dur-medium2: 0.01ms;
+    --md3-dur-medium3: 0.01ms; --md3-dur-medium4: 0.01ms;
+    --t-dur: 0.01ms; --t-dur-mid: 0.01ms; --t-stagger: 0ms;
+  }
+/* ============================================================
+ * 主题六：玉桂狗（Cinnamoroll）
+ * ------------------------------------------------------------
+ * 语言：粉白奶油配色 + 蝴蝶结与爱心装饰 + 超大圆角（窗 28 / 卡片 24）、
+ *       白色卡片带粉色描边、奶油粉阴影、圆润回弹动效。
+ * 颜色：强调色取 tonal 里的 tertiary（本就是"温柔粉/藕荷"一族），
+ *       所以手选任意主色都能得到协调的粉调；表面固定偏奶油白，
+ *       保证"一眼认出是 Kitty"而不是随壁纸变色。
+ * ============================================================ */
+body.theme-dog{
+  /* ※ Hello Kitty / 玉桂狗是"角色扮演主题"：**配色不跟壁纸走**。
+   *   在 body 上直接覆盖配色中枢的 --md3-* 角色（body 比 :root 更靠近后代，
+   *   自己的声明赢过从 html 继承的值）→ 凡引用这些角色的规则（state layer、
+   *   滑块、焦点环、滚动条）全部自动变成 kitty 粉，Monet 取不到它们头上。
+   *   v2.0 只重定义了 --t-accent，结果壁纸一偏色 Kitty 就不粉了——
+   *   用户反馈"没有 hello kitty 元素"的真凶就是这个。 */
+  --md3-primary: #4FA8E8;            --md3-primary-rgb: 79 168 232;
+  --md3-on-primary: #ffffff;         --md3-on-primary-rgb: 255 255 255;
+  --md3-primary-container: #D6EDFC;  --md3-primary-container-rgb: 214 237 252;
+  --md3-on-primary-container: #2E5B76; --md3-on-primary-container-rgb: 46 91 118;
+  --md3-secondary: #2E86C9;          --md3-secondary-rgb: 46 134 201;
+  --md3-secondary-container: #C5E7FA; --md3-secondary-container-rgb: 197 231 250;
+  --md3-on-secondary-container: #244F69; --md3-on-secondary-container-rgb: 36 79 105;
+  --md3-tertiary: #8FCDEE;           --md3-tertiary-rgb: 143 205 238;
+  --md3-tertiary-container: #D2F0FC; --md3-tertiary-container-rgb: 210 240 252;
+  --md3-on-tertiary-container: #2A6080; --md3-on-tertiary-container-rgb: 42 96 128;
+  --md3-surface: #F5FBFF;            --md3-surface-rgb: 245 251 255;
+  --md3-surface-dim: #E2EEF6;
+  --md3-surface-container: #E3F4FF;  --md3-surface-container-rgb: 227 244 255;
+  --md3-surface-container-high: #FFDCE9; --md3-surface-container-high-rgb: 225 242 253;
+  --md3-on-surface: #3E5A6B;         --md3-on-surface-rgb: 62 90 107;
+  --md3-on-surface-variant: #7FA6BC; --md3-on-surface-variant-rgb: 127 166 188;
+  --md3-outline: #A8D2EE;
+  --md3-outline-variant: #CFE9F9;    --md3-outline-variant-rgb: 207 233 249;
+  --md3-error: #E57373;              --md3-error-rgb: 229 115 115;
+  --md3-on-error: #ffffff;           --md3-on-error-rgb: 255 255 255;
+
+  --radius: 30px;
+  --t-r-win: 30px; --t-r-card: 22px; --t-r-ctl: 16px; --t-r-small: 12px;
+  --t-btn-r: 999px;
+  --t-blur: blur(26px) saturate(130%);
+  --t-veil-border: #BFE3F7;
+  --t-veil-shadow: inset 0 1px 0 #fff, 0 18px 40px -20px rgb(79 168 232 / 0.42);
+  --t-surface: #FFFFFF;
+  --t-surface-2: #F5FBFF;
+  --t-surface-3: #E3F4FF;
+  --t-line: #CFE9F9;
+  --t-accent: #4FA8E8;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #D6EDFC;
+  --t-on-accent-c: #2E5B76;
+  --t-shadow-hover: 0 12px 28px -12px rgb(79 168 232 / 0.45);
+  --t-shadow-menu: 0 14px 38px -14px rgb(79 168 232 / 0.40);
+  --t-fw-title: 800; --t-fw-name: 600; --t-fw-btn: 700;
+  --t-ease: cubic-bezier(0.22, 1.30, 0.36, 1);
+  --t-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-dur: 200ms; --t-dur-mid: 380ms; --t-stagger: 40ms;
+  --text: #3E5A6B;
+  --text-soft: #7FA6BC;
+  --accent: #4FA8E8;
+  --accent-soft: #E1F3FE;
+  --accent-border: #BFE3F7;
+  --danger: #E57373;
+  --glass-edge: #BFE3F7;
+  --glass-hi: #fff;
+}
+body.theme-dog .glass-warp{
+  filter: none !important; -webkit-filter: none !important;
+  backdrop-filter: var(--t-blur); -webkit-backdrop-filter: var(--t-blur);
+}
+body.theme-dog .sheen, body.theme-dog .lg-border{ display: none !important; }
+body.theme-dog .glass-veil{
+  /* ※ --t-veil 必须声明在这一层，不能放进 body 的 token 块：
+   *   --glass-alpha 是 app.js 写在 #widget 上的，body 那层取不到它；
+   *   var() 替换失败会让整条 background 变成 invalid-at-computed-value-time，
+   *   表现就是面纱整个消失、只剩一圈描边。*/
+  --t-veil: linear-gradient(160deg,
+              rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+              rgb(240 250 255 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+              rgb(226 242 253 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  border: 2px solid var(--t-veil-border);
+  background: var(--t-veil);
+  box-shadow: var(--t-veil-shadow);
+}
+/* 标题栏 + 右上角玉桂狗头像——v2.2 起用**真实裁剪图片**（renderer/assets/），
+ * 不再手绘 SVG 耳朵：与 kitty 主题同规格的角色贴图待遇。 */
+body.theme-dog .titlebar{ border-bottom: 2px dotted #BFE3F7; box-shadow: none; padding: 13px 16px; }
+body.theme-dog .titlebar::after{
+  content: ""; position: absolute; right: 52px; top: 2px; width: 36px; height: 24px;
+  background-repeat: no-repeat; background-size: contain; pointer-events: none;
+  background-image: url('assets/cinna-head.png');
+  filter: drop-shadow(0 2px 4px rgb(79 168 232 / 0.30));
+}
+/* 主区右下角：开飞机的玉桂狗贴纸（z-index 1 = veil 同层、树序在后） */
+body.theme-dog .widget::after{
+  content: ""; position: absolute; right: 10px; bottom: 42px; width: 84px; height: 65px;
+  background: url('assets/cinna-plane.png') no-repeat center / contain;
+  opacity: 0.6; pointer-events: none; z-index: 1;
+}
+body.theme-dog .title-icon{ filter: none; color: #4FA8E8; }
+body.theme-dog .title-input{ font-weight: 800; letter-spacing: 0.3px; color: #3E5A6B; }
+body.theme-dog .title-input.editable{
+  background: #F5FBFF; border: 2px solid var(--t-accent);
+  border-radius: var(--t-r-ctl); box-shadow: 0 0 0 4px #E1F3FE;
+}
+body.theme-dog .lock-badge{ border-radius: 999px; background: #D6EDFC; border-color: #BFE3F7; color: #4FA8E8; }
+body.theme-dog .tb-btn{ border-radius: 999px; }
+body.theme-dog .tb-btn:hover{ background: #E3F4FF; color: #4FA8E8; }
+/* 分组标题：爱心当项目符号（内联 SVG，不用 emoji） */
+body.theme-dog .group-title{ font-weight: 800; letter-spacing: 0.4px; color: #7FA6BC; }
+body.theme-dog .group-title::before{
+  content: ""; display: block; width: 13px; height: 13px; border-radius: 0;
+  background-repeat: no-repeat; background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'%3E%3Cpath d='M5.5 12.5a3.6 3.6 0 0 1-.5-7.2A4.8 4.8 0 0 1 14 4.4a3.6 3.6 0 0 1 1 8.1z' fill='%23BFE3F7'/%3E%3C/svg%3E");
+}
+body.theme-dog .item{
+  border-radius: var(--t-r-card);
+  border: 2px solid var(--t-line);
+  background: var(--t-surface);
+  box-shadow: 0 4px 12px -8px rgb(79 168 232 / 0.35);
+  transition: transform var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), background var(--t-dur) var(--t-ease);
+}
+body.theme-dog .item:active{ transform: scale(0.93) rotate(-1.5deg); background: var(--t-surface-3); }
+body.theme-dog .item:hover{ transform: translateY(-4px) rotate(0.5deg); box-shadow: var(--t-shadow-hover); border-color: #9FD3F0; }
+body.theme-dog .item:hover .item-icon{ transform: scale(1.08); color: #fff; }
+body.theme-dog .item:hover .item-icon .ic{ filter: none; }
+body.theme-dog .item:hover .item-name{ color: #4FA8E8; }
+/* 图标底板：粉色圆形"贴纸"，悬停变实心粉 */
+body.theme-dog .item-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #4FA8E8;
+  border: 2px solid #BFE3F7; box-shadow: none;
+}
+body.theme-dog .item.add-card{ border: 2px dashed #9FD3F0; background: #F5FBFF; color: #7FA6BC; }
+body.theme-dog .item .del-btn{ border-radius: 999px; border: 2px solid #fff; background: #4FA8E8; box-shadow: none; }
+body.theme-dog .usb-section{ position: relative; overflow: hidden; background: var(--t-surface-2); border: 2px solid var(--t-line); border-radius: var(--t-r-win); }
+/* USB 区右下角：眨眼玉桂狗 */
+body.theme-dog .usb-section::after{
+  content: ""; position: absolute; right: 6px; bottom: -4px; width: 56px; height: 38px;
+  background: url('assets/cinna-wink.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.95;
+  filter: drop-shadow(0 3px 6px rgb(79 168 232 / 0.26));
+}
+body.theme-dog .usb-item{ background: var(--t-surface); border: 2px solid var(--t-line); border-radius: var(--t-r-ctl); }
+body.theme-dog .usb-item:hover{ background: var(--t-surface-3); border-color: #9FD3F0; }
+body.theme-dog .usb-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #4FA8E8;
+  border: 2px solid #BFE3F7; box-shadow: none;
+}
+body.theme-dog .usb-hint{ border-top: 2px dotted #BFE3F7; color: #7FA6BC; }
+body.theme-dog .usb-btn, body.theme-dog .primary-btn, body.theme-dog .ghost-btn, body.theme-dog .danger-btn, body.theme-dog .pick-btn, body.theme-dog .text-btn, body.theme-dog .size-controls button{ border-radius: var(--t-btn-r); font-weight: var(--t-fw-btn); letter-spacing: 0.2px; }
+body.theme-dog .usb-btn{ border: 2px solid #BFE3F7; background: #fff; color: #4FA8E8; box-shadow: none; }
+body.theme-dog .usb-btn.primary{ background: #4FA8E8; color: #fff; border-color: #4FA8E8; }
+body.theme-dog .primary-btn{
+  background: #4FA8E8; color: #fff; border: 2px solid #fff;
+  box-shadow: 0 6px 16px -6px rgb(79 168 232 / 0.6);
+}
+body.theme-dog .danger-btn{ background: #fff; color: #4FA8E8; border: 2px solid #9FD3F0; box-shadow: none; }
+body.theme-dog .ghost-btn{ background: #fff; color: #7FA6BC; border: 2px solid #BFE3F7; box-shadow: none; }
+body.theme-dog .pick-btn{ background: #E1F3FE; color: #4FA8E8; border: 2px solid transparent; }
+body.theme-dog .text-btn{ background: transparent; color: #4FA8E8; border: none; }
+body.theme-dog .size-controls button{ background: #fff; color: #4FA8E8; border: 2px solid #BFE3F7; }
+body.theme-dog .usb-btn:hover, body.theme-dog .ghost-btn:hover, body.theme-dog .size-controls button:hover{ background: #E3F4FF; border-color: #9FD3F0; }
+body.theme-dog .primary-btn:hover, body.theme-dog .usb-btn.primary:hover{
+    box-shadow: inset 0 0 0 999px rgb(255 255 255 / 0.14), 0 8px 20px -6px rgb(79 168 232 / 0.6); filter: none;
+  }
+body.theme-dog .opacity-bar{
+  background: #fff; border: 2px solid var(--t-line);
+  border-radius: var(--t-r-card); box-shadow: 0 4px 14px -10px rgb(79 168 232 / 0.4);
+}
+body.theme-dog input[type="range"]{ height: 22px; }
+body.theme-dog input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px; border-radius: 999px; background: #D6EDFC;
+}
+body.theme-dog input[type="range"]::-webkit-slider-thumb{
+  width: 20px; height: 20px; margin-top: -6px; border-radius: 50%;
+  background: #4FA8E8; border: 3px solid #fff; box-shadow: 0 2px 6px rgb(79 168 232 / 0.45);
+}
+body.theme-dog .panel, body.theme-dog .modal-card, body.theme-dog .ctx-menu{
+  border-radius: var(--t-r-win);
+  background: #fff;
+  border: 2px solid #BFE3F7;
+  box-shadow: var(--t-shadow-menu);
+}
+body.theme-dog .panel-header, body.theme-dog .modal-header{ border-bottom: 2px dotted #BFE3F7; font-weight: 800; color: #4FA8E8; }
+body.theme-dog .ctx-item{ border-radius: var(--t-r-small); font-weight: 600; }
+body.theme-dog .ctx-danger, body.theme-dog .ctx-danger .ic{ color: #4FA8E8; }
+body.theme-dog .row input[type="text"], body.theme-dog .row select, body.theme-dog .field input, body.theme-dog .field select, body.theme-dog .add-group-row input{
+  border: 2px solid #BFE3F7; border-radius: var(--t-r-ctl);
+  background: #F5FBFF; color: #3E5A6B; font-weight: 600;
+}
+body.theme-dog .row input[type="text"]:focus, body.theme-dog .row select:focus, body.theme-dog .field input:focus, body.theme-dog .field select:focus{ border-color: #4FA8E8; box-shadow: 0 0 0 4px #E1F3FE; }
+body.theme-dog .icon-preview{ border-radius: var(--t-r-ctl); background: #F5FBFF; border-color: #BFE3F7; }
+body.theme-dog .group-list li{ border-bottom: 2px dotted #BFE3F7; }
+body.theme-dog .toast{
+  background: #4FA8E8; color: #fff; border: 2px solid #fff;
+  border-radius: 999px; box-shadow: 0 10px 26px -8px rgb(79 168 232 / 0.6); font-weight: 700;
+}
+body.theme-dog .hint{ color: #7FA6BC; }
+body.theme-dog .content{ scrollbar-color: #9FD3F0 transparent; }
+body.theme-dog .content::-webkit-scrollbar-thumb{ background: #9FD3F0; border-radius: 999px; }
+body.theme-dog .usb-btn:focus-visible, body.theme-dog .primary-btn:focus-visible, body.theme-dog .ghost-btn:focus-visible, body.theme-dog .pick-btn:focus-visible, body.theme-dog .seg-btn:focus-visible, body.theme-dog .tb-btn:focus-visible{ outline: 2px solid #4FA8E8; outline-offset: 2px; }
+body.theme-dog .usb-btn, body.theme-dog .primary-btn, body.theme-dog .ghost-btn, body.theme-dog .danger-btn, body.theme-dog .pick-btn, body.theme-dog .text-btn, body.theme-dog .size-controls button, body.theme-dog .seg-btn, body.theme-dog .ctx-item, body.theme-dog .usb-item, body.theme-dog .row input[type="text"], body.theme-dog .row select{
+  transition: background var(--t-dur) var(--t-ease), color var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              transform var(--t-dur) var(--t-ease);
+}
+body.theme-dog .seg{
+  background: #F5FBFF; border: 2px solid #BFE3F7; border-radius: 999px;
+}
+body.theme-dog .seg-btn{ color: #7FA6BC; font-weight: 700; border-radius: 999px; }
+body.theme-dog .seg-btn[aria-pressed="true"]{
+  background: #4FA8E8; color: #fff; font-weight: 800; box-shadow: 0 3px 10px -3px rgb(79 168 232 / 0.6);
+}
+/* 设置面板右下角：开飞机玉桂狗水印（不挡内容，随面板圆角裁切）
+ * ※ 基础 .panel 已是绝对定位 + overflow:hidden，主题规则**不能**再写
+ *   position:relative（v2.2.1 事故：会打掉面板定位，托盘设置打不开）。 */
+body.theme-dog .panel::after{
+  content: ""; position: absolute; right: 10px; bottom: 8px; width: 48px; height: 37px;
+  background: url('assets/cinna-plane.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 5px rgb(79 168 232 / 0.24));
+}
+/* v2.2.2 增补：面板左下单车玉桂狗 + 右键菜单草莓玉桂狗 */
+body.theme-dog .panel::before{
+  content: ""; position: absolute; left: 10px; bottom: 8px; width: 48px; height: 35px;
+  background: url('assets/cinna-bike.png') no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.88;
+  filter: drop-shadow(0 2px 5px rgb(79 168 232 / 0.22));
+}
+body.theme-dog .ctx-menu{ overflow: hidden; }
+body.theme-dog .ctx-menu::after{
+  content: ""; position: absolute; right: 4px; bottom: 3px; width: 40px; height: 21px;
+  background: url('assets/cinna-berry.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.92;
+  filter: drop-shadow(0 2px 4px rgb(79 168 232 / 0.22));
+}
+body.theme-dog .t-enter{ animation-name: t-in-dog; }
+body.theme-dog .panel, body.theme-dog .modal-card, body.theme-dog .ctx-menu{ animation: t-panel-dog var(--t-dur-mid) var(--t-ease) backwards; transform-origin: top center; }
+body.theme-dog .toast{ animation: t-toast-dog var(--t-dur-mid) var(--t-ease) backwards; }
+
+/* 入场 / 面板 / toast 动效（各主题自带节奏） */
+
+@keyframes t-panel-dog { from { opacity: 0; transform: translateY(-10px) scale(0.97); } }
+
+@keyframes t-toast-dog { from { opacity: 0; transform: translateY(16px) scale(0.92); } }
+
+@keyframes t-in-dog {
+  from { opacity: 0; transform: translateY(12px) scale(0.95) rotate(1.5deg); }
+}
+
+
+@keyframes t-in-dog {
+  from { opacity: 0; transform: translateY(12px) scale(0.95) rotate(1.5deg); }
+}

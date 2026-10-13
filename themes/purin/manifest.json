@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "purin",
+  "name": "布丁狗",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "Pompompurin 布丁黄：焦糖布丁配色，暖洋洋的奶油黄。",
+  "accent": "#D9962E",
+  "accentSecondary": "#F6DCA8",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

@@ -1,0 +1,273 @@
+/* ============================================================
+ * FClassPal 主题包 · 库洛米（kuromi）
+ * 紫色小恶魔 Kuromi：尖角与骷髅装饰，暗紫配色。
+ * ------------------------------------------------------------
+ * 打包规范见仓库 SPEC.md。本文件由本体 renderer/style.css 的对应主题段
+ * 剥离而来，选择器一律以 body.theme-kuromi 开头，装进应用后即插即用。
+ * 素材引号里写 assets/<文件名>，加载器会改写成应用内的绝对路径。
+ * ============================================================ */
+body.theme-kuromi{
+    --md3-dur-short1: 0.01ms; --md3-dur-short2: 0.01ms;
+    --md3-dur-short3: 0.01ms; --md3-dur-short4: 0.01ms;
+    --md3-dur-medium1: 0.01ms; --md3-dur-medium2: 0.01ms;
+    --md3-dur-medium3: 0.01ms; --md3-dur-medium4: 0.01ms;
+    --t-dur: 0.01ms; --t-dur-mid: 0.01ms; --t-stagger: 0ms;
+  }
+/* ============================================================
+ * 主题七：库洛米（Kuromi）
+ * ------------------------------------------------------------
+ * 语言：紫黑朋克小恶魔——薰衣草紫主色 + 骷髅粉点缀 + 白色表面；
+ *       形状比 kitty 收敛一档（窗 24 / 卡 20），按钮用 14px 圆角矩形
+ *       （药丸太甜，不合库洛米的坏脾气）；按压带一点邪气的旋转。
+ *       贴图全部用真实裁剪图片（renderer/assets/）。
+ * ============================================================ */
+body.theme-kuromi{
+  /* ※ 与 kitty/dog 同机制：角色扮演主题**配色不跟壁纸走**，body 直接覆盖
+   *   --md3-* 角色，Monet 取不到它们头上（v2.0 教训：只换 --t-accent 会被
+   *   壁纸偏色带跑）。 */
+  --md3-primary: #8E5BC8;            --md3-primary-rgb: 142 91 200;
+  --md3-on-primary: #ffffff;         --md3-on-primary-rgb: 255 255 255;
+  --md3-primary-container: #E7DBF7;  --md3-primary-container-rgb: 231 219 247;
+  --md3-on-primary-container: #4A3372; --md3-on-primary-container-rgb: 74 51 114;
+  --md3-secondary: #F06292;          --md3-secondary-rgb: 240 98 146;
+  --md3-secondary-container: #FCE0EB; --md3-secondary-container-rgb: 252 224 235;
+  --md3-on-secondary-container: #8C3A5C; --md3-on-secondary-container-rgb: 140 58 92;
+  --md3-tertiary: #B088D8;           --md3-tertiary-rgb: 176 136 216;
+  --md3-tertiary-container: #EFE4FA; --md3-tertiary-container-rgb: 239 228 250;
+  --md3-on-tertiary-container: #57406E; --md3-on-tertiary-container-rgb: 87 64 110;
+  --md3-surface: #FAF8FD;            --md3-surface-rgb: 250 248 253;
+  --md3-surface-dim: #ECE6F4;
+  --md3-surface-container: #F1EBF9;  --md3-surface-container-rgb: 241 235 249;
+  --md3-surface-container-high: #E7DDF5; --md3-surface-container-high-rgb: 231 221 245;
+  --md3-on-surface: #463A56;         --md3-on-surface-rgb: 70 58 86;
+  --md3-on-surface-variant: #8A7A9E; --md3-on-surface-variant-rgb: 138 122 158;
+  --md3-outline: #C9B8E4;
+  --md3-outline-variant: #E2D6F4;    --md3-outline-variant-rgb: 226 214 244;
+  --md3-error: #F06292;              --md3-error-rgb: 240 98 146;
+  --md3-on-error: #ffffff;           --md3-on-error-rgb: 255 255 255;
+
+  --radius: 24px;
+  --t-r-win: 24px; --t-r-card: 20px; --t-r-ctl: 14px; --t-r-small: 10px;
+  --t-btn-r: 14px;
+  --t-blur: blur(20px) saturate(130%);
+  --t-veil-border: #C9B8E4;
+  --t-veil-shadow: inset 0 1px 0 #fff, 0 20px 44px -22px rgb(142 91 200 / 0.45);
+  --t-surface: #FFFFFF;
+  --t-surface-2: #FAF8FD;
+  --t-surface-3: #F1EBF9;
+  --t-line: #E2D6F4;
+  --t-accent: #8E5BC8;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #E7DBF7;
+  --t-on-accent-c: #4A3372;
+  --t-shadow-hover: 0 12px 28px -12px rgb(142 91 200 / 0.48);
+  --t-shadow-menu: 0 14px 38px -14px rgb(142 91 200 / 0.42);
+  --t-fw-title: 800; --t-fw-name: 600; --t-fw-btn: 700;
+  --t-ease: cubic-bezier(0.34, 1.40, 0.64, 1);
+  --t-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-dur: 200ms; --t-dur-mid: 400ms; --t-stagger: 42ms;
+  --text: #463A56;
+  --text-soft: #8A7A9E;
+  --accent: #8E5BC8;
+  --accent-soft: #EFE4FA;
+  --accent-border: #C9B8E4;
+  --danger: #F06292;
+  --glass-edge: #C9B8E4;
+  --glass-hi: #fff;
+}
+body.theme-kuromi .glass-warp{
+  filter: none !important; -webkit-filter: none !important;
+  backdrop-filter: var(--t-blur); -webkit-backdrop-filter: var(--t-blur);
+}
+body.theme-kuromi .sheen, body.theme-kuromi .lg-border{ display: none !important; }
+body.theme-kuromi .glass-veil{
+  /* ※ --t-veil 必须声明在这一层（--glass-alpha 在 #widget 上，body 取不到） */
+  --t-veil: linear-gradient(160deg,
+              rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+              rgb(250 246 254 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+              rgb(240 232 250 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  border: 2px solid var(--t-veil-border);
+  background: var(--t-veil);
+  box-shadow: var(--t-veil-shadow);
+}
+/* 标题栏 + 右上角库洛米头像（真实裁剪图片） */
+body.theme-kuromi .titlebar{ border-bottom: 2px dotted #C9B8E4; box-shadow: none; padding: 13px 16px; }
+body.theme-kuromi .titlebar::after{
+  content: ""; position: absolute; right: 52px; top: 7px; width: 34px; height: 18px;
+  background-repeat: no-repeat; background-size: contain; pointer-events: none;
+  background-image: url('assets/kuromi-head.png');
+  filter: drop-shadow(0 2px 4px rgb(142 91 200 / 0.32));
+}
+/* 主区右下角：站姿库洛米贴纸 */
+body.theme-kuromi .widget::after{
+  content: ""; position: absolute; right: 10px; bottom: 42px; width: 70px; height: 85px;
+  background: url('assets/kuromi-stand.png') no-repeat center / contain;
+  opacity: 0.6; pointer-events: none; z-index: 1;
+}
+body.theme-kuromi .title-icon{ filter: none; color: #8E5BC8; }
+body.theme-kuromi .title-input{ font-weight: 800; letter-spacing: 0.3px; color: #463A56; }
+body.theme-kuromi .title-input.editable{
+  background: #FAF8FD; border: 2px solid var(--t-accent);
+  border-radius: var(--t-r-ctl); box-shadow: 0 0 0 4px #EFE4FA;
+}
+body.theme-kuromi .lock-badge{ border-radius: 999px; background: #E7DBF7; border-color: #C9B8E4; color: #8E5BC8; }
+body.theme-kuromi .tb-btn{ border-radius: 999px; }
+body.theme-kuromi .tb-btn:hover{ background: #F1EBF9; color: #8E5BC8; }
+/* 分组标题：小恶魔菱形当项目符号（内联 SVG，不用 emoji） */
+body.theme-kuromi .group-title{ font-weight: 800; letter-spacing: 0.4px; color: #8A7A9E; }
+body.theme-kuromi .group-title::before{
+  content: ""; display: block; width: 13px; height: 13px; border-radius: 0;
+  background-repeat: no-repeat; background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1l5.2 5.2L8 15 2.8 6.2z' fill='%238E5BC8'/%3E%3Ccircle cx='8' cy='6.4' r='1.6' fill='%23F06292'/%3E%3C/svg%3E");
+}
+body.theme-kuromi .item{
+  border-radius: var(--t-r-card);
+  border: 2px solid var(--t-line);
+  background: var(--t-surface);
+  box-shadow: 0 4px 12px -8px rgb(142 91 200 / 0.38);
+  transition: transform var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), background var(--t-dur) var(--t-ease);
+}
+/* 按压语言：坏脾气的邪气侧倾 */
+body.theme-kuromi .item:active{ transform: scale(0.94) rotate(1.2deg); background: var(--t-surface-3); }
+body.theme-kuromi .item:hover{ transform: translateY(-4px) rotate(-0.5deg); box-shadow: var(--t-shadow-hover); border-color: #B494DE; }
+body.theme-kuromi .item:hover .item-icon{ transform: scale(1.08); color: #fff; }
+body.theme-kuromi .item:hover .item-icon .ic{ filter: none; }
+body.theme-kuromi .item:hover .item-name{ color: #8E5BC8; }
+/* 图标底板：薰衣草圆形"贴纸"，悬停变实心紫 */
+body.theme-kuromi .item-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #8E5BC8;
+  border: 2px solid #C9B8E4; box-shadow: none;
+}
+body.theme-kuromi .item.add-card{ border: 2px dashed #B494DE; background: #FAF8FD; color: #8A7A9E; }
+body.theme-kuromi .item .del-btn{ border-radius: 999px; border: 2px solid #fff; background: #F06292; box-shadow: none; }
+body.theme-kuromi .usb-section{ position: relative; overflow: hidden; background: var(--t-surface-2); border: 2px solid var(--t-line); border-radius: var(--t-r-win); }
+/* USB 区右下角：爱心眼库洛米 */
+body.theme-kuromi .usb-section::after{
+  content: ""; position: absolute; right: 6px; bottom: -4px; width: 56px; height: 46px;
+  background: url('assets/kuromi-love.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.95;
+  filter: drop-shadow(0 3px 6px rgb(142 91 200 / 0.28));
+}
+body.theme-kuromi .usb-item{ background: var(--t-surface); border: 2px solid var(--t-line); border-radius: var(--t-r-ctl); }
+body.theme-kuromi .usb-item:hover{ background: var(--t-surface-3); border-color: #B494DE; }
+body.theme-kuromi .usb-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #8E5BC8;
+  border: 2px solid #C9B8E4; box-shadow: none;
+}
+body.theme-kuromi .usb-hint{ border-top: 2px dotted #C9B8E4; color: #8A7A9E; }
+body.theme-kuromi .usb-btn, body.theme-kuromi .primary-btn, body.theme-kuromi .ghost-btn, body.theme-kuromi .danger-btn, body.theme-kuromi .pick-btn, body.theme-kuromi .text-btn, body.theme-kuromi .size-controls button{ border-radius: var(--t-btn-r); font-weight: var(--t-fw-btn); letter-spacing: 0.2px; }
+body.theme-kuromi .usb-btn{ border: 2px solid #C9B8E4; background: #fff; color: #8E5BC8; box-shadow: none; }
+body.theme-kuromi .usb-btn.primary{ background: #8E5BC8; color: #fff; border-color: #8E5BC8; }
+body.theme-kuromi .primary-btn{
+  background: #8E5BC8; color: #fff; border: 2px solid #fff;
+  box-shadow: 0 6px 16px -6px rgb(142 91 200 / 0.62);
+}
+body.theme-kuromi .danger-btn{ background: #fff; color: #F06292; border: 2px solid #F5B8CF; box-shadow: none; }
+body.theme-kuromi .ghost-btn{ background: #fff; color: #8A7A9E; border: 2px solid #C9B8E4; box-shadow: none; }
+body.theme-kuromi .pick-btn{ background: #EFE4FA; color: #8E5BC8; border: 2px solid transparent; }
+body.theme-kuromi .text-btn{ background: transparent; color: #8E5BC8; border: none; }
+body.theme-kuromi .size-controls button{ background: #fff; color: #8E5BC8; border: 2px solid #C9B8E4; }
+body.theme-kuromi .usb-btn:hover, body.theme-kuromi .ghost-btn:hover, body.theme-kuromi .size-controls button:hover{ background: #F1EBF9; border-color: #B494DE; }
+body.theme-kuromi .primary-btn:hover, body.theme-kuromi .usb-btn.primary:hover{
+    box-shadow: inset 0 0 0 999px rgb(255 255 255 / 0.14), 0 8px 20px -6px rgb(142 91 200 / 0.62); filter: none;
+  }
+body.theme-kuromi .opacity-bar{
+  background: #fff; border: 2px solid var(--t-line);
+  border-radius: var(--t-r-card); box-shadow: 0 4px 14px -10px rgb(142 91 200 / 0.42);
+}
+body.theme-kuromi input[type="range"]{ height: 22px; }
+body.theme-kuromi input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px; border-radius: 999px; background: #E7DBF7;
+}
+body.theme-kuromi input[type="range"]::-webkit-slider-thumb{
+  width: 20px; height: 20px; margin-top: -6px; border-radius: 50%;
+  background: #8E5BC8; border: 3px solid #fff; box-shadow: 0 2px 6px rgb(142 91 200 / 0.48);
+}
+/* ※ 定位警告：.ctx-menu 基础是 position:fixed、.panel 是绝对定位——
+ *   主题规则若写 position:relative（优先级更高）会把它们整个打掉（v2.2.1 事故）。 */
+body.theme-kuromi .panel, body.theme-kuromi .ctx-menu{
+  border-radius: var(--t-r-win);
+  background: #fff;
+  border: 2px solid #C9B8E4;
+  box-shadow: var(--t-shadow-menu);
+}
+/* 弹窗卡片基础是 static，贴纸需要 relative 做锚点（与 kitty 同） */
+body.theme-kuromi .modal-card{ position: relative; border-radius: var(--t-r-win); background: #fff; border: 2px solid #C9B8E4; box-shadow: var(--t-shadow-menu); }
+body.theme-kuromi .panel-header, body.theme-kuromi .modal-header{ border-bottom: 2px dotted #C9B8E4; font-weight: 800; color: #8E5BC8; }
+body.theme-kuromi .ctx-item{ border-radius: var(--t-r-small); font-weight: 600; }
+body.theme-kuromi .ctx-danger, body.theme-kuromi .ctx-danger .ic{ color: #F06292; }
+body.theme-kuromi .row input[type="text"], body.theme-kuromi .row select, body.theme-kuromi .field input, body.theme-kuromi .field select, body.theme-kuromi .add-group-row input{
+  border: 2px solid #C9B8E4; border-radius: var(--t-r-ctl);
+  background: #FAF8FD; color: #463A56; font-weight: 600;
+}
+body.theme-kuromi .row input[type="text"]:focus, body.theme-kuromi .row select:focus, body.theme-kuromi .field input:focus, body.theme-kuromi .field select:focus{ border-color: #8E5BC8; box-shadow: 0 0 0 4px #EFE4FA; }
+body.theme-kuromi .icon-preview{ border-radius: var(--t-r-ctl); background: #FAF8FD; border-color: #C9B8E4; }
+body.theme-kuromi .group-list li{ border-bottom: 2px dotted #C9B8E4; }
+/* 设置面板右下角：Q版库洛米水印 */
+body.theme-kuromi .panel::after{
+  content: ""; position: absolute; right: 10px; bottom: 8px; width: 50px; height: 36px;
+  background: url('assets/kuromi-face.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.92;
+  filter: drop-shadow(0 2px 5px rgb(142 91 200 / 0.26));
+}
+/* 编辑弹窗右下角：站姿库洛米小贴纸 */
+body.theme-kuromi .modal-card::after{
+  content: ""; position: absolute; right: 8px; bottom: 6px; width: 40px; height: 48px;
+  background: url('assets/kuromi-stand.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.88;
+  filter: drop-shadow(0 2px 5px rgb(142 91 200 / 0.24));
+}
+/* v2.2.2 增补：面板左下躺姿库洛米 + 右键菜单伤心库洛米 */
+body.theme-kuromi .panel::before{
+  content: ""; position: absolute; left: 10px; bottom: 8px; width: 40px; height: 45px;
+  background: url('assets/kuromi-lie.png') no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.88;
+  filter: drop-shadow(0 2px 5px rgb(142 91 200 / 0.24));
+}
+body.theme-kuromi .ctx-menu{ overflow: hidden; }
+body.theme-kuromi .ctx-menu::after{
+  content: ""; position: absolute; right: 4px; bottom: 3px; width: 46px; height: 27px;
+  background: url('assets/kuromi-cry.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.92;
+  filter: drop-shadow(0 2px 4px rgb(142 91 200 / 0.22));
+}
+body.theme-kuromi .toast{
+  background: #8E5BC8; color: #fff; border: 2px solid #fff;
+  border-radius: var(--t-btn-r); box-shadow: 0 10px 26px -8px rgb(142 91 200 / 0.62); font-weight: 700;
+}
+body.theme-kuromi .hint{ color: #8A7A9E; }
+body.theme-kuromi .content{ scrollbar-color: #B494DE transparent; }
+body.theme-kuromi .content::-webkit-scrollbar-thumb{ background: #B494DE; border-radius: 999px; }
+body.theme-kuromi .usb-btn:focus-visible, body.theme-kuromi .primary-btn:focus-visible, body.theme-kuromi .ghost-btn:focus-visible, body.theme-kuromi .pick-btn:focus-visible, body.theme-kuromi .seg-btn:focus-visible, body.theme-kuromi .tb-btn:focus-visible{ outline: 2px solid #8E5BC8; outline-offset: 2px; }
+body.theme-kuromi .usb-btn, body.theme-kuromi .primary-btn, body.theme-kuromi .ghost-btn, body.theme-kuromi .danger-btn, body.theme-kuromi .pick-btn, body.theme-kuromi .text-btn, body.theme-kuromi .size-controls button, body.theme-kuromi .seg-btn, body.theme-kuromi .ctx-item, body.theme-kuromi .usb-item, body.theme-kuromi .row input[type="text"], body.theme-kuromi .row select{
+  transition: background var(--t-dur) var(--t-ease), color var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              transform var(--t-dur) var(--t-ease);
+}
+body.theme-kuromi .seg{
+  background: #FAF8FD; border: 2px solid #C9B8E4; border-radius: var(--t-btn-r);
+}
+body.theme-kuromi .seg-btn{ color: #8A7A9E; font-weight: 700; border-radius: var(--t-btn-r); }
+body.theme-kuromi .seg-btn[aria-pressed="true"]{
+  background: #8E5BC8; color: #fff; font-weight: 800; box-shadow: 0 3px 10px -3px rgb(142 91 200 / 0.62);
+}
+body.theme-kuromi .t-enter{
+  animation-delay: calc(var(--i, 0) * var(--t-stagger));
+  animation-timing-function: var(--t-ease-in);
+  animation-duration: var(--t-dur-mid);
+  animation-fill-mode: backwards;
+}
+body.theme-kuromi .t-enter{ animation-name: t-in-kuromi; }
+body.theme-kuromi .panel, body.theme-kuromi .modal-card, body.theme-kuromi .ctx-menu{ animation: t-panel-kuromi var(--t-dur-mid) var(--t-ease) backwards; transform-origin: top center; }
+body.theme-kuromi .toast{ animation: t-toast-kuromi var(--t-dur-mid) var(--t-ease) backwards; }
+
+/* 入场 / 面板 / toast 动效（各主题自带节奏） */
+
+@keyframes t-in-kuromi {
+  from { opacity: 0; transform: scale(0.82) rotate(4deg); }
+}
+
+@keyframes t-panel-kuromi { from { opacity: 0; transform: scale(0.9) rotate(2deg); } }
+
+@keyframes t-toast-kuromi { from { opacity: 0; transform: translateY(14px) scale(0.9) rotate(-3deg); } }

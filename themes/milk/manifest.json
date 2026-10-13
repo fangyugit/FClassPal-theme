@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "milk",
+  "name": "奶蛙",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "奶蛙 meme：黄绿皮与呆滞大眼，奶茶色系的慵懒配色。",
+  "accent": "#C08552",
+  "accentSecondary": "#D9E8A8",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

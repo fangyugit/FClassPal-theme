@@ -1,0 +1,13 @@
+{
+  "spec": 1,
+  "id": "example-minimal",
+  "name": "示例 · 极简",
+  "version": "1.0.0",
+  "author": "FClassPal",
+  "description": "最小可用主题模板：两个文件、无素材，演示 token 与面纱的写法。",
+  "accent": "#4C7A8C",
+  "accentSecondary": "#A9C6D0",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "license": "MIT"
+}

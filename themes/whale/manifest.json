@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "whale",
+  "name": "DS鲸鱼娘",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "DeepSeek 鲸鱼娘：海蓝与白色的科技感配色。",
+  "accent": "#3E6FD8",
+  "accentSecondary": "#AFC7F2",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

@@ -1,0 +1,289 @@
+/* ============================================================
+ * FClassPal 主题包 · DS鲸鱼娘（whale）
+ * DeepSeek 鲸鱼娘：海蓝与白色的科技感配色。
+ * ------------------------------------------------------------
+ * 打包规范见仓库 SPEC.md。本文件由本体 renderer/style.css 的对应主题段
+ * 剥离而来，选择器一律以 body.theme-whale 开头，装进应用后即插即用。
+ * 素材引号里写 assets/<文件名>，加载器会改写成应用内的绝对路径。
+ * ============================================================ */
+body.theme-whale{
+    --md3-dur-short1: 0.01ms; --md3-dur-short2: 0.01ms;
+    --md3-dur-short3: 0.01ms; --md3-dur-short4: 0.01ms;
+    --md3-dur-medium1: 0.01ms; --md3-dur-medium2: 0.01ms;
+    --md3-dur-medium3: 0.01ms; --md3-dur-medium4: 0.01ms;
+    --t-dur: 0.01ms; --t-dur-mid: 0.01ms; --t-stagger: 0ms;
+  }
+body.theme-whale .t-enter{
+  animation-delay: calc(var(--i, 0) * var(--t-stagger));
+  animation-timing-function: var(--t-ease-in);
+  animation-duration: var(--t-dur-mid);
+  animation-fill-mode: backwards;
+}
+body.theme-whale .t-enter{ animation-name: t-in-whale; }
+body.theme-whale .panel, body.theme-whale .modal-card, body.theme-whale .ctx-menu{ animation: t-panel-whale var(--t-dur-mid) var(--t-ease) backwards; transform-origin: top center; }
+body.theme-whale .toast{ animation: t-toast-whale var(--t-dur-mid) var(--t-ease) backwards; }
+body.theme-whale{
+  /* ※ DS鲸鱼娘 / 玉桂狗是"角色扮演主题"：**配色不跟壁纸走**。
+   *   在 body 上直接覆盖配色中枢的 --md3-* 角色（body 比 :root 更靠近后代，
+   *   自己的声明赢过从 html 继承的值）→ 凡引用这些角色的规则（state layer、
+   *   滑块、焦点环、滚动条）全部自动变成DS鲸鱼娘色，Monet 取不到它们头上。
+   *   v2.0 只重定义了 --t-accent，结果壁纸一偏色 DS鲸鱼娘 就不粉了——
+   *   用户反馈"看不出角色元素"的真凶就是这个。 */
+  --md3-primary: #3E6FD8;            --md3-primary-rgb: 62 111 216;
+  --md3-on-primary: #ffffff;         --md3-on-primary-rgb: 255 255 255;
+  --md3-primary-container: #DBE4FA;  --md3-primary-container-rgb: 255 217 230;
+  --md3-on-primary-container: #263E78; --md3-on-primary-container-rgb: 139 58 87;
+  --md3-secondary: #3358B4;          --md3-secondary-rgb: 194 24 91;
+  --md3-secondary-container: #D4E0F8; --md3-secondary-container-rgb: 255 194 216;
+  --md3-on-secondary-container: #213668; --md3-on-secondary-container-rgb: 122 39 69;
+  --md3-tertiary: #5E88E2;           --md3-tertiary-rgb: 242 109 155;
+  --md3-tertiary-container: #E4EBFB; --md3-tertiary-container-rgb: 255 211 225;
+  --md3-on-tertiary-container: #2C4888; --md3-on-tertiary-container-rgb: 142 58 87;
+  --md3-surface: #FAFCFF;            --md3-surface-rgb: 250 252 255;
+  --md3-surface-dim: #E0E8F4;
+  --md3-surface-container: #EDF2FB;  --md3-surface-container-rgb: 237 242 251;
+  --md3-surface-container-high: #DFE8F8; --md3-surface-container-high-rgb: 223 232 248;
+  --md3-on-surface: #2E3E5A;         --md3-on-surface-rgb: 46 62 90;
+  --md3-on-surface-variant: #7285A6; --md3-on-surface-variant-rgb: 114 133 166;
+  --md3-outline: #A5BCE4;
+  --md3-outline-variant: #D6E2F6;    --md3-outline-variant-rgb: 214 226 246;
+  --md3-error: #3E6FD8;              --md3-error-rgb: 62 111 216;
+  --md3-on-error: #ffffff;           --md3-on-error-rgb: 255 255 255;
+
+  --radius: 28px;
+  --t-r-win: 28px; --t-r-card: 24px; --t-r-ctl: 18px; --t-r-small: 14px;
+  --t-btn-r: 999px;
+  --t-blur: blur(18px) saturate(140%);
+  --t-veil-border: #BCCDF0;
+  --t-veil-shadow: inset 0 1px 0 #fff, 0 20px 44px -22px rgb(62 111 216 / 0.42);
+  --t-surface: #FFFFFF;
+  --t-surface-2: #FAFCFF;
+  --t-surface-3: #EDF2FB;
+  --t-line: #D6E2F6;
+  --t-accent: #3E6FD8;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #DBE4FA;
+  --t-on-accent-c: #263E78;
+  --t-shadow-hover: 0 12px 28px -12px rgb(62 111 216 / 0.45);
+  --t-shadow-menu: 0 14px 38px -14px rgb(62 111 216 / 0.40);
+  --t-fw-title: 800; --t-fw-name: 600; --t-fw-btn: 700;
+  --t-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-dur: 220ms; --t-dur-mid: 420ms; --t-stagger: 45ms;
+  --text: #2E3E5A;
+  --text-soft: #7285A6;
+  --accent: #3E6FD8;
+  --accent-soft: #E2EBFB;
+  --accent-border: #BCCDF0;
+  --danger: #3E6FD8;
+  --glass-edge: #BCCDF0;
+  --glass-hi: #fff;
+}
+body.theme-whale .glass-warp{
+  filter: none !important; -webkit-filter: none !important;
+  backdrop-filter: var(--t-blur); -webkit-backdrop-filter: var(--t-blur);
+}
+body.theme-whale .sheen, body.theme-whale .lg-border{ display: none !important; }
+body.theme-whale .glass-veil{
+  /* ※ --t-veil 必须声明在这一层，不能放进 body 的 token 块：
+   *   --glass-alpha 是 app.js 写在 #widget 上的，body 那层取不到它；
+   *   var() 替换失败会让整条 background 变成 invalid-at-computed-value-time，
+   *   表现就是面纱整个消失、只剩一圈描边。*/
+  --t-veil: linear-gradient(160deg,
+              rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+rgb(250 245 251 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+              rgb(237 234 247 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%;
+  border: 2px solid var(--t-veil-border);
+  background: var(--t-veil);
+  box-shadow: var(--t-veil-shadow);
+}
+/* 标题栏 + 右上角 DS鲸鱼娘 头像——v2.5.0 起用**真实角色素材**（renderer/theme/<主题>/ 下 PNG，_themestick.py 产出），
+ * 想换官方图直接改 url(...)，：用户点名"找 kitty 图片裁剪加进来构成元素"。 */
+body.theme-whale .titlebar{ border-bottom: 2px dotted #BCCDF0; box-shadow: none; padding: 13px 16px; }
+body.theme-whale .titlebar::after{
+  content: ""; position: absolute; right: 56px; top: 3px; width: 30px; height: 35px;
+  background-repeat: no-repeat; background-size: contain; pointer-events: none;
+  background-image: url("assets/whale-head.png"));
+  filter: drop-shadow(0 2px 4px rgb(62 111 216 / 0.30));
+}
+/* 主区右下角的 DS鲸鱼娘 挥手贴纸：盖在玻璃层上（z-index 1 = veil 同层、树序在后），
+ * 内容卡片(z-index 2)之下；空区可见、被卡片压住时不挡内容。 */
+body.theme-whale .widget::after{
+  content: ""; position: absolute; right: 10px; bottom: 42px; width: 74px; height: 88px;
+  background: url("assets/whale-full.png") no-repeat center / contain;
+  opacity: 0.65; pointer-events: none; z-index: 1;
+}
+body.theme-whale .title-icon{ filter: none; color: #3E6FD8; }
+body.theme-whale .title-input{ font-weight: 800; letter-spacing: 0.3px; color: #2E3E5A; }
+body.theme-whale .title-input.editable{
+  background: #FAFCFF; border: 2px solid var(--t-accent);
+  border-radius: var(--t-r-ctl); box-shadow: 0 0 0 4px #E2EBFB;
+}
+body.theme-whale .lock-badge{ border-radius: 999px; background: #DBE4FA; border-color: #BCCDF0; color: #3E6FD8; }
+body.theme-whale .tb-btn{ border-radius: 999px; }
+body.theme-whale .tb-btn:hover{ background: #EDF2FB; color: #3E6FD8; }
+/* 分组标题：爱心当项目符号（内联 SVG，不用 emoji） */
+body.theme-whale .group-title{ font-weight: 800; letter-spacing: 0.4px; color: #7285A6; }
+body.theme-whale .group-title::before{
+  content: ""; display: block; width: 13px; height: 13px; border-radius: 0;
+  background-repeat: no-repeat; background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 14.4S1.4 10.2 1.4 5.9A3.4 3.4 0 0 1 8 4.3a3.4 3.4 0 0 1 6.6 1.6c0 4.3-6.6 8.5-6.6 8.5z' fill='%23F26D9B'/%3E%3C/svg%3E");
+}
+body.theme-whale .item{
+  border-radius: var(--t-r-card);
+  border: 2px solid var(--t-line);
+  background: var(--t-surface);
+  box-shadow: 0 4px 12px -8px rgb(62 111 216 / 0.35);
+  transition: transform var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), background var(--t-dur) var(--t-ease);
+}
+body.theme-whale .item:active{ transform: scale(0.93) rotate(-1.5deg); background: var(--t-surface-3); }
+body.theme-whale .item:hover{ transform: translateY(-4px) rotate(0.5deg); box-shadow: var(--t-shadow-hover); border-color: #88A4E8; }
+body.theme-whale .item:hover .item-icon{ transform: scale(1.08); color: #fff; }
+body.theme-whale .item:hover .item-icon .ic{ filter: none; }
+body.theme-whale .item:hover .item-name{ color: #3E6FD8; }
+/* 图标底板：粉色圆形"贴纸"，悬停变实心粉 */
+body.theme-whale .item-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #3E6FD8;
+  border: 2px solid #BCCDF0; box-shadow: none;
+}
+body.theme-whale .item.add-card{ border: 2px dashed #88A4E8; background: #FAFCFF; color: #7285A6; }
+body.theme-whale .item .del-btn{ border-radius: 999px; border: 2px solid #fff; background: #3E6FD8; box-shadow: none; }
+body.theme-whale .usb-section{ position: relative; overflow: hidden; background: var(--t-surface-2); border: 2px solid var(--t-line); border-radius: var(--t-r-win); }
+body.theme-whale .usb-section::after{
+  content: ""; position: absolute; right: 6px; bottom: -6px; width: 46px; height: 52px;
+  background: url("assets/whale-sit.png") no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.96;
+  filter: drop-shadow(0 3px 6px rgb(62 111 216 / 0.28));
+}
+body.theme-whale .usb-item{ background: var(--t-surface); border: 2px solid var(--t-line); border-radius: var(--t-r-ctl); }
+body.theme-whale .usb-item:hover{ background: var(--t-surface-3); border-color: #88A4E8; }
+body.theme-whale .usb-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #3E6FD8;
+  border: 2px solid #BCCDF0; box-shadow: none;
+}
+body.theme-whale .usb-hint{ border-top: 2px dotted #BCCDF0; color: #7285A6; }
+body.theme-whale .usb-btn, body.theme-whale .primary-btn, body.theme-whale .ghost-btn, body.theme-whale .danger-btn, body.theme-whale .pick-btn, body.theme-whale .text-btn, body.theme-whale .size-controls button{ border-radius: var(--t-btn-r); font-weight: var(--t-fw-btn); letter-spacing: 0.2px; }
+body.theme-whale .usb-btn{ border: 2px solid #BCCDF0; background: #fff; color: #3E6FD8; box-shadow: none; }
+body.theme-whale .usb-btn.primary{ background: #3E6FD8; color: #fff; border-color: #3E6FD8; }
+body.theme-whale .primary-btn{
+  background: #3E6FD8; color: #fff; border: 2px solid #fff;
+  box-shadow: 0 6px 16px -6px rgb(62 111 216 / 0.6);
+}
+body.theme-whale .danger-btn{ background: #fff; color: #3E6FD8; border: 2px solid #88A4E8; box-shadow: none; }
+body.theme-whale .ghost-btn{ background: #fff; color: #7285A6; border: 2px solid #BCCDF0; box-shadow: none; }
+body.theme-whale .pick-btn{ background: #E2EBFB; color: #3E6FD8; border: 2px solid transparent; }
+body.theme-whale .text-btn{ background: transparent; color: #3E6FD8; border: none; }
+body.theme-whale .size-controls button{ background: #fff; color: #3E6FD8; border: 2px solid #BCCDF0; }
+body.theme-whale .usb-btn:hover, body.theme-whale .ghost-btn:hover, body.theme-whale .size-controls button:hover{ background: #EDF2FB; border-color: #88A4E8; }
+body.theme-whale .primary-btn:hover, body.theme-whale .usb-btn.primary:hover{
+    box-shadow: inset 0 0 0 999px rgb(255 255 255 / 0.14), 0 8px 20px -6px rgb(62 111 216 / 0.6); filter: none;
+  }
+body.theme-whale .opacity-bar{
+  background: #fff; border: 2px solid var(--t-line);
+  border-radius: var(--t-r-card); box-shadow: 0 4px 14px -10px rgb(62 111 216 / 0.4);
+}
+body.theme-whale input[type="range"]{ height: 22px; }
+body.theme-whale input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px; border-radius: 999px; background: #DBE4FA;
+}
+body.theme-whale input[type="range"]::-webkit-slider-thumb{
+  width: 20px; height: 20px; margin-top: -6px; border-radius: 50%;
+  background: #3E6FD8; border: 3px solid #fff; box-shadow: 0 2px 6px rgb(62 111 216 / 0.45);
+}
+body.theme-whale .panel, body.theme-whale .modal-card, body.theme-whale .ctx-menu{
+  border-radius: var(--t-r-win);
+  background: #fff;
+  border: 2px solid #BCCDF0;
+  box-shadow: var(--t-shadow-menu);
+}
+body.theme-whale .panel-header, body.theme-whale .modal-header{ border-bottom: 2px dotted #BCCDF0; font-weight: 800; color: #3E6FD8; }
+body.theme-whale .ctx-item{ border-radius: var(--t-r-small); font-weight: 600; }
+body.theme-whale .ctx-danger, body.theme-whale .ctx-danger .ic{ color: #3E6FD8; }
+body.theme-whale .row input[type="text"], body.theme-whale .row select, body.theme-whale .field input, body.theme-whale .field select, body.theme-whale .add-group-row input{
+  border: 2px solid #BCCDF0; border-radius: var(--t-r-ctl);
+  background: #FAFCFF; color: #2E3E5A; font-weight: 600;
+}
+body.theme-whale .row input[type="text"]:focus, body.theme-whale .row select:focus, body.theme-whale .field input:focus, body.theme-whale .field select:focus{ border-color: #3E6FD8; box-shadow: 0 0 0 4px #E2EBFB; }
+body.theme-whale .icon-preview{ border-radius: var(--t-r-ctl); background: #FAFCFF; border-color: #BCCDF0; }
+body.theme-whale .group-list li{ border-bottom: 2px dotted #BCCDF0; }
+/* 设置面板右下角：站姿 DS鲸鱼娘 水印（不挡内容，随面板圆角裁切） */
+body.theme-whale .panel::after{
+  content: ""; position: absolute; right: 10px; bottom: 8px; width: 44px; height: 52px;
+  background: url("assets/whale-full.png") no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 5px rgb(62 111 216 / 0.25));
+}
+body.theme-whale .toast{
+  background: #3E6FD8; color: #fff; border: 2px solid #fff;
+  border-radius: 999px; box-shadow: 0 10px 26px -8px rgb(62 111 216 / 0.6); font-weight: 700;
+}
+body.theme-whale .hint{ color: #7285A6; }
+body.theme-whale .content{ scrollbar-color: #88A4E8 transparent; }
+body.theme-whale .content::-webkit-scrollbar-thumb{ background: #88A4E8; border-radius: 999px; }
+body.theme-whale .usb-btn:focus-visible, body.theme-whale .primary-btn:focus-visible, body.theme-whale .ghost-btn:focus-visible, body.theme-whale .pick-btn:focus-visible, body.theme-whale .seg-btn:focus-visible, body.theme-whale .tb-btn:focus-visible{ outline: 2px solid #3E6FD8; outline-offset: 2px; }
+body.theme-whale .usb-btn, body.theme-whale .primary-btn, body.theme-whale .ghost-btn, body.theme-whale .danger-btn, body.theme-whale .pick-btn, body.theme-whale .text-btn, body.theme-whale .size-controls button, body.theme-whale .seg-btn, body.theme-whale .ctx-item, body.theme-whale .usb-item, body.theme-whale .row input[type="text"], body.theme-whale .row select{
+  transition: background var(--t-dur) var(--t-ease), color var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              transform var(--t-dur) var(--t-ease);
+}
+body.theme-whale .seg{
+  background: #FAFCFF; border: 2px solid #BCCDF0; border-radius: 999px;
+}
+body.theme-whale .seg-btn{ color: #7285A6; font-weight: 700; border-radius: 999px; }
+body.theme-whale .seg-btn[aria-pressed="true"]{
+  background: #3E6FD8; color: #fff; font-weight: 800; box-shadow: 0 3px 10px -3px rgb(62 111 216 / 0.6);
+}
+/* ---- v2.2 增补贴图位：更多真实裁剪图片元素（用户点名"加入更多 kitty 贴图"）----
+ * 主区左下角奶瓶 DS鲸鱼娘（挂 .glass-veil::before——.widget::before 是已废弃的
+ * 玻璃层挂点，测试有守卫断言）、USB 区左侧芭蕾 DS鲸鱼娘、设置面板左下芭蕾
+ * DS鲸鱼娘、编辑弹窗右下挥手 DS鲸鱼娘。全部 pointer-events:none，不挡内容。 */
+body.theme-whale .glass-veil::before{
+  content: ""; position: absolute; left: 10px; bottom: 46px; width: 52px; height: 50px;
+  background: url("assets/whale-wave.png") no-repeat center / contain;
+  opacity: 0.55; pointer-events: none;
+}
+body.theme-whale .usb-section{ position: relative; overflow: hidden; }
+body.theme-whale .usb-section::before{
+  content: ""; position: absolute; left: 8px; bottom: -4px; width: 40px; height: 48px;
+  background: url("assets/whale-alt.png") no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.92;
+  filter: drop-shadow(0 3px 6px rgb(62 111 216 / 0.25));
+}
+body.theme-whale .panel::before{
+  content: ""; position: absolute; left: 10px; bottom: 8px; width: 38px; height: 44px;
+  background: url("assets/whale-alt.png") no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.85;
+  filter: drop-shadow(0 2px 5px rgb(62 111 216 / 0.22));
+}
+body.theme-whale .modal-card{ position: relative; overflow: hidden; }
+body.theme-whale .modal-card::after{
+  content: ""; position: absolute; right: 8px; bottom: 6px; width: 42px; height: 40px;
+  background: url("assets/whale-wave.png") no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 5px rgb(62 111 216 / 0.22));
+}
+/* v2.2.2 增补：右键菜单和服 DS鲸鱼娘（.ctx-menu 基础已是 fixed=已定位，贴纸直接锚定；
+ * ※ 主题规则不得改写它的 position）+ 编辑弹窗左下坐姿 DS鲸鱼娘
+ * （弹窗卡片基础是 static，relative 锚点已在上面给出）。 */
+body.theme-whale .ctx-menu{ overflow: hidden; }
+body.theme-whale .ctx-menu::after{
+  content: ""; position: absolute; right: 4px; bottom: 2px; width: 30px; height: 41px;
+  background: url("assets/whale-mini.png") no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgb(62 111 216 / 0.25));
+}
+body.theme-whale .modal-card::before{
+  content: ""; position: absolute; left: 8px; bottom: 6px; width: 32px; height: 36px;
+  background: url("assets/whale-sit.png") no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.85;
+  filter: drop-shadow(0 2px 4px rgb(62 111 216 / 0.20));
+}
+
+/* 入场 / 面板 / toast 动效（各主题自带节奏） */
+
+@keyframes t-in-whale { from { opacity: 0; transform: translateY(14px) scale(0.9); } }
+
+@keyframes t-panel-whale { from { opacity: 0; transform: translateY(10px) scale(0.94); } }
+
+@keyframes t-toast-whale { from { opacity: 0; transform: translateY(16px) scale(0.9); } }

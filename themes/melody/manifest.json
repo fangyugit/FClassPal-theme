@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "melody",
+  "name": "美乐蒂",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "My Melody 粉兔：长耳朵与蝴蝶结，奶油粉白配色。",
+  "accent": "#EC6FA8",
+  "accentSecondary": "#FBD3E4",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

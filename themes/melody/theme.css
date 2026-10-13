@@ -1,0 +1,281 @@
+/* ============================================================
+ * FClassPal 主题包 · 美乐蒂（melody）
+ * My Melody 粉兔：耳朵与蝴蝶结，奶油粉白配色。
+ * ------------------------------------------------------------
+ * 打包规范见仓库 SPEC.md。本文件由本体 renderer/style.css 的对应主题段
+ * 剥离而来，选择器一律以 body.theme-melody 开头，装进应用后即插即用。
+ * 素材引号里写 assets/<文件名>，加载器会改写成应用内的绝对路径。
+ * ============================================================ */
+body.theme-melody{
+    --md3-dur-short1: 0.01ms; --md3-dur-short2: 0.01ms;
+    --md3-dur-short3: 0.01ms; --md3-dur-short4: 0.01ms;
+    --md3-dur-medium1: 0.01ms; --md3-dur-medium2: 0.01ms;
+    --md3-dur-medium3: 0.01ms; --md3-dur-medium4: 0.01ms;
+    --t-dur: 0.01ms; --t-dur-mid: 0.01ms; --t-stagger: 0ms;
+  }
+/* ============================================================
+ * 主题八：美乐蒂（My Melody）
+ * ------------------------------------------------------------
+ * 语言：樱花粉 + 帽兜红——比 kitty 更奶油、更圆（窗 26 / 卡 22），
+ *       按钮全药丸；按压是软糯的缩放回弹。贴图全部用真实裁剪图片
+ *       （renderer/assets/）。
+ * ============================================================ */
+body.theme-melody{
+  --md3-primary: #EC6FA8;            --md3-primary-rgb: 236 111 168;
+  --md3-on-primary: #ffffff;         --md3-on-primary-rgb: 255 255 255;
+  --md3-primary-container: #FDDCE9;  --md3-primary-container-rgb: 253 220 233;
+  --md3-on-primary-container: #7C3A55; --md3-on-primary-container-rgb: 124 58 85;
+  --md3-secondary: #E8548A;          --md3-secondary-rgb: 232 84 138;
+  --md3-secondary-container: #FAD2E2; --md3-secondary-container-rgb: 250 210 226;
+  --md3-on-secondary-container: #8A2F52; --md3-on-secondary-container-rgb: 138 47 82;
+  --md3-tertiary: #F49FC4;           --md3-tertiary-rgb: 244 159 196;
+  --md3-tertiary-container: #FEE6F0; --md3-tertiary-container-rgb: 254 230 240;
+  --md3-on-tertiary-container: #8A4A68; --md3-on-tertiary-container-rgb: 138 74 104;
+  --md3-surface: #FFF8FB;            --md3-surface-rgb: 255 248 251;
+  --md3-surface-dim: #F6E4EC;
+  --md3-surface-container: #FDEDF4;  --md3-surface-container-rgb: 253 237 244;
+  --md3-surface-container-high: #FADCE8; --md3-surface-container-high-rgb: 250 220 232;
+  --md3-on-surface: #5C4050;         --md3-on-surface-rgb: 92 64 80;
+  --md3-on-surface-variant: #A87E92; --md3-on-surface-variant-rgb: 168 126 146;
+  --md3-outline: #EFC2D8;
+  --md3-outline-variant: #F8DCE9;    --md3-outline-variant-rgb: 248 220 233;
+  --md3-error: #E8548A;              --md3-error-rgb: 232 84 138;
+  --md3-on-error: #ffffff;           --md3-on-error-rgb: 255 255 255;
+
+  --radius: 26px;
+  --t-r-win: 26px; --t-r-card: 22px; --t-r-ctl: 16px; --t-r-small: 12px;
+  --t-btn-r: 999px;
+  --t-blur: blur(18px) saturate(135%);
+  --t-veil-border: #EFC2D8;
+  --t-veil-shadow: inset 0 1px 0 #fff, 0 20px 44px -22px rgb(236 111 168 / 0.42);
+  --t-surface: #FFFFFF;
+  --t-surface-2: #FFF8FB;
+  --t-surface-3: #FDEDF4;
+  --t-line: #F8DCE9;
+  --t-accent: #EC6FA8;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #FDDCE9;
+  --t-on-accent-c: #7C3A55;
+  --t-shadow-hover: 0 12px 28px -12px rgb(236 111 168 / 0.45);
+  --t-shadow-menu: 0 14px 38px -14px rgb(236 111 168 / 0.40);
+  --t-fw-title: 800; --t-fw-name: 600; --t-fw-btn: 700;
+  --t-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-dur: 210ms; --t-dur-mid: 410ms; --t-stagger: 44ms;
+  --text: #5C4050;
+  --text-soft: #A87E92;
+  --accent: #EC6FA8;
+  --accent-soft: #FEE6F0;
+  --accent-border: #EFC2D8;
+  --danger: #E8548A;
+  --glass-edge: #EFC2D8;
+  --glass-hi: #fff;
+}
+body.theme-melody .glass-warp{
+  filter: none !important; -webkit-filter: none !important;
+  backdrop-filter: var(--t-blur); -webkit-backdrop-filter: var(--t-blur);
+}
+body.theme-melody .sheen, body.theme-melody .lg-border{ display: none !important; }
+body.theme-melody .glass-veil{
+  --t-veil: linear-gradient(160deg,
+              rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+              rgb(255 245 250 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+              rgb(255 231 240 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  border: 2px solid var(--t-veil-border);
+  background: var(--t-veil);
+  box-shadow: var(--t-veil-shadow);
+}
+/* 标题栏 + 右上角美乐蒂（庆祝姿势小图） */
+body.theme-melody .titlebar{ border-bottom: 2px dotted #EFC2D8; box-shadow: none; padding: 13px 16px; }
+body.theme-melody .titlebar::after{
+  content: ""; position: absolute; right: 54px; top: 4px; width: 28px; height: 24px;
+  background-repeat: no-repeat; background-size: contain; pointer-events: none;
+  background-image: url('assets/melody-cheer.png');
+  filter: drop-shadow(0 2px 4px rgb(236 111 168 / 0.30));
+}
+/* 主区右下角：撒花美乐蒂贴纸 */
+body.theme-melody .widget::after{
+  content: ""; position: absolute; right: 10px; bottom: 42px; width: 78px; height: 70px;
+  background: url('assets/melody-full.png') no-repeat center / contain;
+  opacity: 0.62; pointer-events: none; z-index: 1;
+}
+body.theme-melody .title-icon{ filter: none; color: #EC6FA8; }
+body.theme-melody .title-input{ font-weight: 800; letter-spacing: 0.3px; color: #5C4050; }
+body.theme-melody .title-input.editable{
+  background: #FFF8FB; border: 2px solid var(--t-accent);
+  border-radius: var(--t-r-ctl); box-shadow: 0 0 0 4px #FEE6F0;
+}
+body.theme-melody .lock-badge{ border-radius: 999px; background: #FDDCE9; border-color: #EFC2D8; color: #EC6FA8; }
+body.theme-melody .tb-btn{ border-radius: 999px; }
+body.theme-melody .tb-btn:hover{ background: #FDEDF4; color: #EC6FA8; }
+/* 分组标题：帽兜小花当项目符号（内联 SVG，不用 emoji） */
+body.theme-melody .group-title{ font-weight: 800; letter-spacing: 0.4px; color: #A87E92; }
+body.theme-melody .group-title::before{
+  content: ""; display: block; width: 13px; height: 13px; border-radius: 0;
+  background-repeat: no-repeat; background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='2.2' fill='%23FFD54F'/%3E%3Cg fill='%23F49FC4'%3E%3Ccircle cx='8' cy='3.4' r='2.4'/%3E%3Ccircle cx='12.4' cy='6.6' r='2.4'/%3E%3Ccircle cx='10.7' cy='12' r='2.4'/%3E%3Ccircle cx='5.3' cy='12' r='2.4'/%3E%3Ccircle cx='3.6' cy='6.6' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
+}
+body.theme-melody .item{
+  border-radius: var(--t-r-card);
+  border: 2px solid var(--t-line);
+  background: var(--t-surface);
+  box-shadow: 0 4px 12px -8px rgb(236 111 168 / 0.35);
+  transition: transform var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), background var(--t-dur) var(--t-ease);
+}
+/* 按压语言：软糯缩放回弹 */
+body.theme-melody .item:active{ transform: scale(0.93); background: var(--t-surface-3); }
+body.theme-melody .item:hover{ transform: translateY(-4px) rotate(-1.2deg); box-shadow: var(--t-shadow-hover); border-color: #F49FC4; }
+body.theme-melody .item:hover .item-icon{ transform: scale(1.08); color: #fff; }
+body.theme-melody .item:hover .item-icon .ic{ filter: none; }
+body.theme-melody .item:hover .item-name{ color: #EC6FA8; }
+body.theme-melody .item-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #EC6FA8;
+  border: 2px solid #EFC2D8; box-shadow: none;
+}
+body.theme-melody .item.add-card{ border: 2px dashed #F49FC4; background: #FFF8FB; color: #A87E92; }
+body.theme-melody .item .del-btn{ border-radius: 999px; border: 2px solid #fff; background: #E8548A; box-shadow: none; }
+body.theme-melody .usb-section{ position: relative; overflow: hidden; background: var(--t-surface-2); border: 2px solid var(--t-line); border-radius: var(--t-r-win); }
+/* USB 区右下角：庆祝美乐蒂 */
+body.theme-melody .usb-section::after{
+  content: ""; position: absolute; right: 6px; bottom: -4px; width: 52px; height: 44px;
+  background: url('assets/melody-cheer.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.95;
+  filter: drop-shadow(0 3px 6px rgb(236 111 168 / 0.26));
+}
+body.theme-melody .usb-item{ background: var(--t-surface); border: 2px solid var(--t-line); border-radius: var(--t-r-ctl); }
+body.theme-melody .usb-item:hover{ background: var(--t-surface-3); border-color: #F49FC4; }
+body.theme-melody .usb-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #EC6FA8;
+  border: 2px solid #EFC2D8; box-shadow: none;
+}
+body.theme-melody .usb-hint{ border-top: 2px dotted #EFC2D8; color: #A87E92; }
+body.theme-melody .usb-btn, body.theme-melody .primary-btn, body.theme-melody .ghost-btn, body.theme-melody .danger-btn, body.theme-melody .pick-btn, body.theme-melody .text-btn, body.theme-melody .size-controls button{ border-radius: var(--t-btn-r); font-weight: var(--t-fw-btn); letter-spacing: 0.2px; }
+body.theme-melody .usb-btn{ border: 2px solid #EFC2D8; background: #fff; color: #EC6FA8; box-shadow: none; }
+body.theme-melody .usb-btn.primary{ background: #EC6FA8; color: #fff; border-color: #EC6FA8; }
+body.theme-melody .primary-btn{
+  background: #EC6FA8; color: #fff; border: 2px solid #fff;
+  box-shadow: 0 6px 16px -6px rgb(236 111 168 / 0.6);
+}
+body.theme-melody .danger-btn{ background: #fff; color: #E8548A; border: 2px solid #F49FC4; box-shadow: none; }
+body.theme-melody .ghost-btn{ background: #fff; color: #A87E92; border: 2px solid #EFC2D8; box-shadow: none; }
+body.theme-melody .pick-btn{ background: #FEE6F0; color: #EC6FA8; border: 2px solid transparent; }
+body.theme-melody .text-btn{ background: transparent; color: #EC6FA8; border: none; }
+body.theme-melody .size-controls button{ background: #fff; color: #EC6FA8; border: 2px solid #EFC2D8; }
+body.theme-melody .usb-btn:hover, body.theme-melody .ghost-btn:hover, body.theme-melody .size-controls button:hover{ background: #FDEDF4; border-color: #F49FC4; }
+body.theme-melody .primary-btn:hover, body.theme-melody .usb-btn.primary:hover{
+    box-shadow: inset 0 0 0 999px rgb(255 255 255 / 0.14), 0 8px 20px -6px rgb(236 111 168 / 0.6); filter: none;
+  }
+body.theme-melody .opacity-bar{
+  background: #fff; border: 2px solid var(--t-line);
+  border-radius: var(--t-r-card); box-shadow: 0 4px 14px -10px rgb(236 111 168 / 0.4);
+}
+body.theme-melody input[type="range"]{ height: 22px; }
+body.theme-melody input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px; border-radius: 999px; background: #FDDCE9;
+}
+body.theme-melody input[type="range"]::-webkit-slider-thumb{
+  width: 20px; height: 20px; margin-top: -6px; border-radius: 50%;
+  background: #EC6FA8; border: 3px solid #fff; box-shadow: 0 2px 6px rgb(236 111 168 / 0.45);
+}
+/* ※ 定位警告：.ctx-menu 基础是 position:fixed、.panel 是绝对定位——
+ *   主题规则若写 position:relative（优先级更高）会把它们整个打掉
+ *   （v2.2.1 事故：美乐蒂主题右键菜单/托盘设置全失效）。这里绝不碰定位。 */
+body.theme-melody .panel, body.theme-melody .ctx-menu{
+  border-radius: var(--t-r-win);
+  background: #fff;
+  border: 2px solid #EFC2D8;
+  box-shadow: var(--t-shadow-menu);
+}
+/* 弹窗卡片基础是 static，贴纸需要 relative 做锚点（与 kitty 同） */
+body.theme-melody .modal-card{ position: relative; border-radius: var(--t-r-win); background: #fff; border: 2px solid #EFC2D8; box-shadow: var(--t-shadow-menu); }
+body.theme-melody .panel-header, body.theme-melody .modal-header{ border-bottom: 2px dotted #EFC2D8; font-weight: 800; color: #EC6FA8; }
+body.theme-melody .ctx-item{ border-radius: var(--t-r-small); font-weight: 600; }
+body.theme-melody .ctx-danger, body.theme-melody .ctx-danger .ic{ color: #E8548A; }
+body.theme-melody .row input[type="text"], body.theme-melody .row select, body.theme-melody .field input, body.theme-melody .field select, body.theme-melody .add-group-row input{
+  border: 2px solid #EFC2D8; border-radius: var(--t-r-ctl);
+  background: #FFF8FB; color: #5C4050; font-weight: 600;
+}
+body.theme-melody .row input[type="text"]:focus, body.theme-melody .row select:focus, body.theme-melody .field input:focus, body.theme-melody .field select:focus{ border-color: #EC6FA8; box-shadow: 0 0 0 4px #FEE6F0; }
+body.theme-melody .icon-preview{ border-radius: var(--t-r-ctl); background: #FFF8FB; border-color: #EFC2D8; }
+body.theme-melody .group-list li{ border-bottom: 2px dotted #EFC2D8; }
+/* 设置面板右下角：撒花美乐蒂水印 */
+body.theme-melody .panel::after{
+  content: ""; position: absolute; right: 10px; bottom: 8px; width: 44px; height: 39px;
+  background: url('assets/melody-full.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 5px rgb(236 111 168 / 0.25));
+}
+/* 编辑弹窗右下角：帽兜头像小贴纸 */
+body.theme-melody .modal-card::after{
+  content: ""; position: absolute; right: 8px; bottom: 8px; width: 46px; height: 22px;
+  background: url('assets/melody-head.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 5px rgb(236 111 168 / 0.24));
+}
+/* v2.2.2 增补：面板左下刺绣美乐蒂 + 右键菜单撒花美乐蒂 */
+body.theme-melody .panel::before{
+  content: ""; position: absolute; left: 10px; bottom: 8px; width: 34px; height: 48px;
+  background: url('assets/melody-emb.png') no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.88;
+  filter: drop-shadow(0 2px 5px rgb(236 111 168 / 0.22));
+}
+body.theme-melody .ctx-menu{ overflow: hidden; }
+body.theme-melody .ctx-menu::after{
+  content: ""; position: absolute; right: 4px; bottom: 3px; width: 40px; height: 36px;
+  background: url('assets/melody-full.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.92;
+  filter: drop-shadow(0 2px 4px rgb(236 111 168 / 0.22));
+}
+body.theme-melody .toast{
+  background: #EC6FA8; color: #fff; border: 2px solid #fff;
+  border-radius: 999px; box-shadow: 0 10px 26px -8px rgb(236 111 168 / 0.6); font-weight: 700;
+}
+body.theme-melody .hint{ color: #A87E92; }
+body.theme-melody .content{ scrollbar-color: #F49FC4 transparent; }
+body.theme-melody .content::-webkit-scrollbar-thumb{ background: #F49FC4; border-radius: 999px; }
+body.theme-melody .usb-btn:focus-visible, body.theme-melody .primary-btn:focus-visible, body.theme-melody .ghost-btn:focus-visible, body.theme-melody .pick-btn:focus-visible, body.theme-melody .seg-btn:focus-visible, body.theme-melody .tb-btn:focus-visible{ outline: 2px solid #EC6FA8; outline-offset: 2px; }
+body.theme-melody .usb-btn, body.theme-melody .primary-btn, body.theme-melody .ghost-btn, body.theme-melody .danger-btn, body.theme-melody .pick-btn, body.theme-melody .text-btn, body.theme-melody .size-controls button, body.theme-melody .seg-btn, body.theme-melody .ctx-item, body.theme-melody .usb-item, body.theme-melody .row input[type="text"], body.theme-melody .row select{
+  transition: background var(--t-dur) var(--t-ease), color var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              transform var(--t-dur) var(--t-ease);
+}
+body.theme-melody .seg{
+  background: #FFF8FB; border: 2px solid #EFC2D8; border-radius: 999px;
+}
+body.theme-melody .seg-btn{ color: #A87E92; font-weight: 700; border-radius: 999px; }
+body.theme-melody .seg-btn[aria-pressed="true"]{
+  background: #EC6FA8; color: #fff; font-weight: 800; box-shadow: 0 3px 10px -3px rgb(236 111 168 / 0.6);
+}
+/* ---- v2.2.1 萌化：波点面纱（整个玻璃上一层淡淡的粉色小圆点）----
+ * 挂 .glass-veil::before（该伪元素在 melody 主题下空闲；kitty 的波点位被
+ * wave 贴纸占用，勿混）。border-radius: inherit 跟随窗口圆角。 */
+body.theme-melody .glass-veil::before{
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle at 7px 7px,
+      rgb(244 159 196 / calc(0.16 + 0.10 * var(--glass-alpha))) 2.3px, transparent 3px);
+  background-size: 26px 26px;
+  border-radius: inherit;
+}
+/* 波点面纱要盖在面纱渐变上、内容之下：veil 自身 z-index 1，::before 树序在其内 */
+body.theme-melody .usb-hint{ border-top-style: dashed; }
+body.theme-melody .titlebar{ border-bottom-style: dashed; }
+body.theme-melody .t-enter{
+  animation-delay: calc(var(--i, 0) * var(--t-stagger));
+  animation-timing-function: var(--t-ease-in);
+  animation-duration: var(--t-dur-mid);
+  animation-fill-mode: backwards;
+}
+body.theme-melody .t-enter{ animation-name: t-in-melody; }
+body.theme-melody .panel, body.theme-melody .modal-card, body.theme-melody .ctx-menu{ animation: t-panel-melody var(--t-dur-mid) var(--t-ease) backwards; transform-origin: top center; }
+body.theme-melody .toast{ animation: t-toast-melody var(--t-dur-mid) var(--t-ease) backwards; }
+
+/* 入场 / 面板 / toast 动效（各主题自带节奏） */
+
+@keyframes t-in-melody {
+  from { opacity: 0; transform: translateY(10px) scale(0.86); }
+}
+
+@keyframes t-panel-melody { from { opacity: 0; transform: scale(0.92) translateY(8px); } }
+
+@keyframes t-toast-melody { from { opacity: 0; transform: translateY(14px) scale(0.9); } }

@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "example-sticker",
+  "name": "示例 · 带素材",
+  "version": "1.0.0",
+  "author": "FClassPal",
+  "description": "带素材的示例：演示 assets/ 引用、伪元素贴纸位与深浅两态。",
+  "accent": "#5F84F0",
+  "accentSecondary": "#A9BEFF",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "sanrio",
+  "name": "三丽鸥混合",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "四个角色合体：Kitty 粉当主色、库洛米紫当次要色、玉桂狗蓝点缀。",
+  "accent": "#E8548A",
+  "accentSecondary": "#9AD2F0",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

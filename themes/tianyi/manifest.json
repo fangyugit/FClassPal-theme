@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "tianyi",
+  "name": "洛天依",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "Vsinger 洛天依：灰发青衣的电子国风，青绿色系。",
+  "accent": "#2FA98C",
+  "accentSecondary": "#A8DCC8",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}

@@ -1,0 +1,203 @@
+/* ============================================================================
+ * FClassPal 主题包 · 最小示例（example-minimal）
+ * ----------------------------------------------------------------------------
+ * 这份文件演示 spec 1 要求的全部要点，可以直接复制改名当模板：
+ *   1. token 块写全套设计变量，改一处全身跟着变；
+ *   2. 固定配色主题要把 --md3-* 角色钉死（否则壁纸一偏色就不像这套主题了）；
+ *   3. --t-veil 必须和 background 同一条规则（见 §3.2，放错面纱会整个消失）；
+ *   4. 每条选择器都带 body.theme-example-minimal 前缀；
+ *   5. @keyframes 名字带自己的 id 前缀，避免和别的主题撞。
+ * 没有素材、没有贴纸 —— 带素材的写法见 examples/sticker/。
+ * ==========================================================================*/
+
+/* ---------- 1. 设计 token ---------- */
+body.theme-example-minimal {
+  /* 形状 */
+  --t-r-win: 22px; --t-r-card: 16px; --t-r-ctl: 12px; --t-r-small: 10px;
+  --t-btn-r: 10px;
+  /* 玻璃 */
+  --t-blur: blur(20px) saturate(125%);
+  /* 表面（越靠后越实） */
+  --t-surface: rgb(246 250 251 / 0.86);
+  --t-surface-2: rgb(255 255 255 / 0.72);
+  --t-surface-3: rgb(236 244 247 / 0.92);
+  /* 强调色（字面值 + 三元组两份） */
+  --t-accent: #4C7A8C;
+  --t-on-accent: #FFFFFF;
+  --t-accent-c: 76 122 140;
+  --t-on-accent-c: 255 255 255;
+  /* 线条与投影 */
+  --t-line: rgb(76 122 140 / 0.14);
+  --t-veil-border: rgb(255 255 255 / 0.62);
+  --t-veil-shadow: 0 10px 28px rgb(60 100 115 / 0.16);
+  --t-shadow-hover: 0 6px 18px rgb(60 100 115 / 0.18);
+  --t-shadow-menu: 0 12px 30px rgb(30 60 70 / 0.22);
+  /* 动效 */
+  --t-ease: cubic-bezier(0.2, 0, 0, 1);
+  --t-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --t-dur: 240ms; --t-dur-mid: 150ms; --t-stagger: 36ms;
+  /* 字重 */
+  --t-fw-title: 600; --t-fw-name: 500; --t-fw-btn: 600;
+
+  /* 固定配色：把 md3 角色钉死，界面里 --text / --accent 都指向这里 */
+  --md3-primary: #4C7A8C;            --md3-primary-rgb: 76 122 140;
+  --md3-primary-container: #D6E6EC;  --md3-primary-container-rgb: 214 230 236;
+  --md3-on-primary: #FFFFFF;         --md3-on-primary-rgb: 255 255 255;
+  --md3-secondary: #8FA9B4;          --md3-secondary-rgb: 143 169 180;
+  --md3-tertiary: #6E93A3;           --md3-tertiary-rgb: 110 147 163;
+  --md3-surface: #F6FAFB;            --md3-surface-rgb: 246 250 251;
+  --md3-surface-dim: #E4EDF0;
+  --md3-surface-container: #EDF4F7;  --md3-surface-container-rgb: 237 244 247;
+  --md3-on-surface: #17262C;         --md3-on-surface-rgb: 23 38 44;
+  --md3-on-surface-variant: #556A73; --md3-on-surface-variant-rgb: 85 106 115;
+  --md3-outline: #BCCCD3;            --md3-outline-variant: #DEE9ED;
+  --md3-error: #C2564F;              --md3-error-rgb: 194 86 79;
+  --md3-on-error: #FFFFFF;
+  --danger: #C2564F;                 /* 删除类按钮：别用主色，要看得出来 */
+}
+
+/* 深色模式：只在这里换表面，强调色不动（角色由本体给深色方案时也适用） */
+body.dark.theme-example-minimal {
+  --t-surface: rgb(22 32 36 / 0.80);
+  --t-surface-2: rgb(34 46 52 / 0.72);
+  --t-surface-3: rgb(44 58 64 / 0.88);
+  --t-line: rgb(169 198 208 / 0.18);
+  --t-veil-border: rgb(255 255 255 / 0.14);
+}
+
+/* ---------- 2. 窗口与面纱 ----------
+ * --t-veil 与 background 必须同一条规则：--glass-alpha 写在 #widget 上，
+ * body 那层取不到，放错会让整条 background 作废、面纱消失只剩描边。 */
+body.theme-example-minimal .widget {
+  border-radius: var(--t-r-win);
+  box-shadow: var(--t-veil-shadow);
+}
+
+body.theme-example-minimal .glass-veil {
+  --t-veil: linear-gradient(160deg,
+              rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+              rgb(238 246 249 / calc(0.72 + 0.28 * var(--glass-alpha))) 100%);
+  background: var(--t-veil);
+  border: 1px solid var(--t-veil-border);
+  backdrop-filter: var(--t-blur);
+  -webkit-backdrop-filter: var(--t-blur);
+}
+
+/* 顶部的细高光：纯装饰，用伪元素而不是额外 DOM */
+body.theme-example-minimal .glass-veil::after {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 1px;
+  background: linear-gradient(90deg, transparent,
+              rgb(255 255 255 / 0.7) 22%, rgb(255 255 255 / 0.7) 78%, transparent);
+  pointer-events: none;
+}
+
+/* ---------- 3. 标题栏 ---------- */
+body.theme-example-minimal .titlebar { color: var(--md3-on-surface); font-weight: var(--t-fw-title); }
+
+body.theme-example-minimal .tb-btn {
+  border-radius: var(--t-btn-r);
+  color: var(--md3-on-surface-variant);
+  transition: background var(--t-dur-mid) var(--t-ease), color var(--t-dur-mid) var(--t-ease);
+}
+body.theme-example-minimal .tb-btn:hover {
+  background: rgb(var(--t-accent-c) / 0.10);
+  color: var(--t-accent);
+}
+
+/* ---------- 4. 列表项 ---------- */
+body.theme-example-minimal .item {
+  border-radius: var(--t-r-card);
+  background: var(--t-surface-2);
+  border: 1px solid var(--t-line);
+  transition: transform var(--t-dur-mid) var(--t-ease),
+              box-shadow var(--t-dur-mid) var(--t-ease),
+              border-color var(--t-dur-mid) var(--t-ease);
+}
+body.theme-example-minimal .item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--t-shadow-hover);
+  border-color: rgb(var(--t-accent-c) / 0.32);
+}
+body.theme-example-minimal .item:active {
+  transform: translateY(0) scale(0.985);
+  background: var(--t-surface-3);
+}
+body.theme-example-minimal .item-icon {
+  border-radius: var(--t-r-small);
+  background: rgb(var(--t-accent-c) / 0.12);
+  color: var(--t-accent);
+}
+
+/* 列表入场：--i 由界面按序号写，配合 --t-stagger 形成错峰 */
+body.theme-example-minimal .t-enter {
+  animation: t-in-example-minimal var(--t-dur) var(--t-ease) backwards;
+  animation-delay: calc(var(--i, 0) * var(--t-stagger));
+}
+@keyframes t-in-example-minimal {
+  from { opacity: 0; transform: translateY(6px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- 5. 面板 / 菜单 / 弹窗 ---------- */
+body.theme-example-minimal .panel {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-r-card);
+}
+
+body.theme-example-minimal .group-title {
+  color: var(--md3-on-surface-variant);
+  font-weight: var(--t-fw-title);
+}
+
+/* 注意：不要给 .ctx-menu / .panel 写 position —— 它们是 fixed / absolute，
+ * 改成 relative 会让菜单和面板跑出窗口。 */
+body.theme-example-minimal .ctx-menu {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-r-ctl);
+  box-shadow: var(--t-shadow-menu);
+}
+body.theme-example-minimal .ctx-item { border-radius: var(--t-r-small); color: var(--md3-on-surface); }
+body.theme-example-minimal .ctx-item:hover { background: rgb(var(--t-accent-c) / 0.12); }
+body.theme-example-minimal .ctx-danger { color: var(--danger); }
+
+body.theme-example-minimal .modal-card {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-r-card);
+}
+
+/* ---------- 6. 按钮 ---------- */
+body.theme-example-minimal .primary-btn,
+body.theme-example-minimal .ghost-btn,
+body.theme-example-minimal .danger-btn,
+body.theme-example-minimal .pick-btn,
+body.theme-example-minimal .text-btn,
+body.theme-example-minimal .size-controls button {
+  border-radius: var(--t-btn-r);
+  font-weight: var(--t-fw-btn);
+  transition: transform var(--t-dur-mid) var(--t-ease), background var(--t-dur-mid) var(--t-ease);
+}
+body.theme-example-minimal .primary-btn {
+  background: var(--t-accent); color: var(--t-on-accent); border: none;
+}
+body.theme-example-minimal .primary-btn:active { transform: scale(0.97); }
+body.theme-example-minimal .ghost-btn { background: rgb(var(--t-accent-c) / 0.10); color: var(--t-accent); }
+body.theme-example-minimal .danger-btn { background: var(--danger); color: #fff; }
+
+/* ---------- 7. 吐司 ---------- */
+body.theme-example-minimal .toast {
+  background: var(--t-surface);
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-r-ctl);
+  box-shadow: var(--t-shadow-menu);
+  animation: t-toast-example-minimal var(--t-dur) var(--t-ease) backwards;
+}
+@keyframes t-toast-example-minimal {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- 8. 安卓壳 ---------- */
+body.mobile.theme-example-minimal .size-controls { display: none; }

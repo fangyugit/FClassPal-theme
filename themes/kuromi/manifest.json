@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "kuromi",
+  "name": "库洛米",
+  "version": "1.0.0",
+  "author": "YU",
+  "description": "紫色小恶魔 Kuromi：尖角兜帽与骷髅装饰，暗紫配色。",
+  "accent": "#8E5BC8",
+  "accentSecondary": "#D6BCEE",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+}
