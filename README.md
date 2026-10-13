@@ -30,7 +30,7 @@ FClassPal（[fangyugit/FClassPal](https://github.com/fangyugit/FClassPal)）的*
 | pochacco | 帕恰狗 | `#4D8FE0` | 6 张 | 运动蓝：圆润蓝色系，轻快的浅蓝白玻璃 |
 | purin | 布丁狗 | `#D9962E` | 6 张 | 焦糖布丁配色，暖洋洋的奶油黄 |
 | milk | 奶蛙 | `#C08552` | 6 张 | 奶蛙 meme：黄绿皮与呆滞大眼，奶茶色系 |
-| tianyi | 洛天依 | `#2FA98C` | 6 张 | 灰发青衣的电子国风，青绿色系 |
+| tianyi | 洛天依 | `#66CCFF` | 6 张 | 灰发青衣的电子国风，官方应援色天依蓝 |
 | ling | 乐正绫 | `#D8433F` | 6 张 | 红发红瞳的热情系，正红与暖白 |
 | miku | 初音未来 | `#1FB5AA` | 6 张 | 葱绿双马尾，清爽的薄荷青配色 |
 | teto | 重音Teto | `#E0557F` | 6 张 | 粉色钻头双马尾，活泼的玫粉配色 |

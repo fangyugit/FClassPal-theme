@@ -92,7 +92,7 @@ body.theme-miku .glass-veil{
   --t-veil: linear-gradient(160deg,
               rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
 rgb(248 245 247 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
-              rgb(234 236 238 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%;
+              rgb(234 236 238 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
   border: 2px solid var(--t-veil-border);
   background: var(--t-veil);
   box-shadow: var(--t-veil-shadow);
@@ -103,7 +103,7 @@ body.theme-miku .titlebar{ border-bottom: 2px dotted #AEDCD5; box-shadow: none; 
 body.theme-miku .titlebar::after{
   content: ""; position: absolute; right: 56px; top: 3px; width: 30px; height: 35px;
   background-repeat: no-repeat; background-size: contain; pointer-events: none;
-  background-image: url("assets/miku-head.png"));
+  background-image: url("assets/miku-head.png");
   filter: drop-shadow(0 2px 4px rgb(31 181 170 / 0.30));
 }
 /* 主区右下角的 初音未来 挥手贴纸：盖在玻璃层上（z-index 1 = veil 同层、树序在后），

@@ -310,10 +310,15 @@ with zipfile.ZipFile('../my-theme.fcpt', 'w', zipfile.ZIP_DEFLATED) as z:
 1. zip 根部有 `manifest.json` 和 `theme.css`（不是套在 `my-theme/` 下）。
 2. `theme.css` 里搜得到 `body.theme-<id>`，`<id>` 与 manifest 一致。
 3. 花括号成对（`{` 数 = `}` 数），没有 `{{` 这类笔误。
-4. 每条规则的选择器都带 `body.theme-<id>` 前缀（`@keyframes` 内部的 `from`/`to`/百分比除外）。
-5. `url("assets/…")` 引用的文件都在包里。
-6. 没有裸 `.类名` 规则、没有 emoji、没有改 `position`。
-7. `--t-veil` 与 `background: var(--t-veil)` 在同一条规则内。
+4. **圆括号也要成对**（`(` 数 = `)` 数）—— 多一个或少一个都不是"只坏这一条声明"，
+   渲染引擎会**从出错点把后面整份样式表丢掉**。本体的主题包是一个包一份样式表，
+   坏包只坏自己；但你自己这份主题的**后半段会全部失效**，表现为"主题只生效了一半 /
+   贴图消失"。2026-10 有 8 套官方主题栽在 `linear-gradient(` 少一个 `)` 上。
+   数括号前先把注释和字符串剥掉，否则 `url("assets/x.png")` 会把人绕晕。
+5. 每条规则的选择器都带 `body.theme-<id>` 前缀（`@keyframes` 内部的 `from`/`to`/百分比除外）。
+6. `url("assets/…")` 引用的文件都在包里。
+7. 没有裸 `.类名` 规则、没有 emoji、没有改 `position`。
+8. `--t-veil` 与 `background: var(--t-veil)` 在同一条规则内。
 
 ### 5.3 安装
 
