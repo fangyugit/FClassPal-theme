@@ -61,7 +61,7 @@ themes/kitty/
 | 字段 | 类型 | 必填 | 说明与校验 |
 | --- | --- | --- | --- |
 | `spec` | int | 否 | 包规范版本，当前固定 `1`。缺省按 1 处理。 |
-| `id` | string | **是** | 主题唯一标识。只允许 `^[a-z][a-z0-9-]{1,23}$`（小写字母开头，2–24 位）。**不能**占用内置 id：`glass` / `md3` / `fluent` / `miuix` / `harmony`。 |
+| `id` | string | **是** | 主题唯一标识。只允许 `^[a-zA-Z][a-zA-Z0-9-]{1,23}$`（字母开头，2–24 位，大小写敏感——内置 id 的大写变体也不许占用，例如 `NaiWa`）。**不能**占用内置 id：`glass` / `md3` / `fluent` / `miuix` / `harmony`。 |
 | `name` | string | 否 | 界面显示名，最长 40 字符。缺省用 `id`。 |
 | `version` | string | 否 | 主题自身版本，最长 20 字符。缺省 `1.0.0`。 |
 | `author` | string | 否 | 作者，最长 40 字符。缺省「未署名」。 |
@@ -319,6 +319,7 @@ with zipfile.ZipFile('../my-theme.fcpt', 'w', zipfile.ZIP_DEFLATED) as z:
 6. `url("assets/…")` 引用的文件都在包里。
 7. 没有裸 `.类名` 规则、没有 emoji、没有改 `position`。
 8. `--t-veil` 与 `background: var(--t-veil)` 在同一条规则内。
+9. 深浅色适配：token 块末尾追加一段 `body.theme-<id>.dark`（压暗 surface 族/文字/描边/面纱，强调色不动），否则暗色模式下包的浅色 token 会赢过本体的全局深色层（包 CSS 注入更靠后、同特异性树序赢）。参考各角色包 theme.css 末尾的「深色模式适配」段，或用本体 _rt/_darkify.py 生成。
 
 ### 5.3 安装
 

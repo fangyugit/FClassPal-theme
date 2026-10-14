@@ -287,3 +287,96 @@ body.theme-miku .modal-card::before{
 @keyframes t-panel-miku { from { opacity: 0; transform: scale(0.92) rotate(-1.5deg) translateY(6px); } }
 
 @keyframes t-toast-miku { from { opacity: 0; transform: translateY(14px) scale(0.88) rotate(-2deg); } }
+
+/* ============================================================
+ * 深色模式适配（body.theme-miku.dark）：压暗表面/文字/描边/面纱，
+ * 强调色一律不动。生成：_rt/_darkify.py（幂等）。
+ * ============================================================ */
+body.theme-miku.dark{
+  --md3-primary: #1FB5AA;
+  --md3-on-primary: #ffffff;
+  --md3-primary-container: #276863;
+  --md3-primary-container-rgb: 39 104 99;
+  --md3-on-primary-container: #DCE5E4;
+  --md3-on-primary-container-rgb: 220 229 228;
+  --md3-secondary: #23A69B;
+  --md3-secondary-container: #276863;
+  --md3-secondary-container-rgb: 39 104 99;
+  --md3-on-secondary-container: #DCE5E4;
+  --md3-on-secondary-container-rgb: 220 229 228;
+  --md3-tertiary: #52C7BC;
+  --md3-tertiary-container: #276863;
+  --md3-tertiary-container-rgb: 39 104 99;
+  --md3-on-tertiary-container: #DCE5E4;
+  --md3-on-tertiary-container-rgb: 220 229 228;
+  --md3-surface: #1F302F;
+  --md3-surface-rgb: 31 48 47;
+  --md3-surface-dim: #172423;
+  --md3-surface-container: #283E3D;
+  --md3-surface-container-rgb: 40 62 61;
+  --md3-surface-container-high: #34514F;
+  --md3-surface-container-high-rgb: 52 81 79;
+  --md3-on-surface: #E3E8E8;
+  --md3-on-surface-rgb: 227 232 232;
+  --md3-on-surface-variant: #9CB4B3;
+  --md3-on-surface-variant-rgb: 156 180 179;
+  --md3-outline: #4A8C87;
+  --md3-outline-variant: #335754;
+  --md3-outline-variant-rgb: 51 87 84;
+  --md3-error: #1FB5AA;
+  --t-veil-border: #30918A;
+  --t-surface: #1F302F;
+  --t-surface-2: #283E3D;
+  --t-surface-3: #34514F;
+  --t-line: #386B67;
+  --t-accent: #1FB5AA;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #276863;
+  --t-on-accent-c: #DCE5E4;
+  --text: #E3E8E8;
+  --text-soft: #9CB4B3;
+  --accent: #1FB5AA;
+  --accent-soft: #276863;
+  --accent-border: #30918A;
+  --danger: #1FB5AA;
+  --glass-edge: #30918A;
+  --glass-hi: #fff;
+}
+
+body.theme-miku.dark .glass-veil{
+  --t-veil: linear-gradient(160deg,
+            rgb(20 31 30 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+            rgb(26 40 39 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+            rgb(32 50 48 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  background: var(--t-veil);
+}
+body.theme-miku.dark .panel, .modal-card, .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-miku.dark .panel-header, .modal-header{ border-bottom-color: var(--t-line); }
+body.theme-miku.dark .titlebar{ border-bottom-color: var(--t-line); }
+body.theme-miku.dark .title-input{ color: var(--text); }
+body.theme-miku.dark .title-input.editable{ background: var(--t-surface-2); box-shadow: none; }
+body.theme-miku.dark .lock-badge{ background: var(--t-accent-c); border-color: var(--t-line); }
+body.theme-miku.dark .tb-btn:hover{ background: var(--t-surface-3); }
+body.theme-miku.dark .group-title{ color: var(--text-soft); }
+body.theme-miku.dark .item{ border-color: var(--t-line); }
+body.theme-miku.dark .item.add-card{ background: var(--t-surface-2); color: var(--text-soft); }
+body.theme-miku.dark .item:hover{ border-color: var(--accent-border); }
+body.theme-miku.dark .usb-section{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-miku.dark .usb-item{ border-color: var(--t-line); }
+body.theme-miku.dark .usb-item:hover{ background: var(--t-surface-3); border-color: var(--accent-border); }
+body.theme-miku.dark .usb-hint{ border-top-color: var(--t-line); color: var(--text-soft); }
+body.theme-miku.dark .usb-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-miku.dark .ghost-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-miku.dark .danger-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-miku.dark .pick-btn{ background: var(--t-accent-c); }
+body.theme-miku.dark .size-controls button{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-miku.dark .usb-btn:hover, .ghost-btn:hover, .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-miku.dark .opacity-bar{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-miku.dark .seg{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-miku.dark .icon-preview{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-miku.dark .row input[type="text"], .row select, .field input, .field select, .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-miku.dark .group-list li{ border-bottom-color: var(--t-line); }
+body.theme-miku.dark .hint{ color: var(--text-soft); }
+body.theme-miku.dark .content{ scrollbar-color: var(--t-line) transparent; }
+body.theme-miku.dark .content::-webkit-scrollbar-thumb{ background: var(--t-line); }
+

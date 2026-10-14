@@ -271,3 +271,96 @@ body.theme-kuromi .toast{ animation: t-toast-kuromi var(--t-dur-mid) var(--t-eas
 @keyframes t-panel-kuromi { from { opacity: 0; transform: scale(0.9) rotate(2deg); } }
 
 @keyframes t-toast-kuromi { from { opacity: 0; transform: translateY(14px) scale(0.9) rotate(-3deg); } }
+
+/* ============================================================
+ * 深色模式适配（body.theme-kuromi.dark）：压暗表面/文字/描边/面纱，
+ * 强调色一律不动。生成：_rt/_darkify.py（幂等）。
+ * ============================================================ */
+body.theme-kuromi.dark{
+  --md3-primary: #8E5BC8;
+  --md3-on-primary: #ffffff;
+  --md3-primary-container: #462F60;
+  --md3-primary-container-rgb: 70 47 96;
+  --md3-on-primary-container: #E0DCE5;
+  --md3-on-primary-container-rgb: 224 220 229;
+  --md3-secondary: #F06292;
+  --md3-secondary-container: #462F60;
+  --md3-secondary-container-rgb: 70 47 96;
+  --md3-on-secondary-container: #E0DCE5;
+  --md3-on-secondary-container-rgb: 224 220 229;
+  --md3-tertiary: #B088D8;
+  --md3-tertiary-container: #462F60;
+  --md3-tertiary-container-rgb: 70 47 96;
+  --md3-on-tertiary-container: #E0DCE5;
+  --md3-on-tertiary-container-rgb: 224 220 229;
+  --md3-surface: #271F30;
+  --md3-surface-rgb: 39 31 48;
+  --md3-surface-dim: #1D1724;
+  --md3-surface-container: #32283E;
+  --md3-surface-container-rgb: 50 40 62;
+  --md3-surface-container-high: #413451;
+  --md3-surface-container-high-rgb: 65 52 81;
+  --md3-on-surface: #E5E3E8;
+  --md3-on-surface-rgb: 229 227 232;
+  --md3-on-surface-variant: #A89CB4;
+  --md3-on-surface-variant-rgb: 168 156 180;
+  --md3-outline: #694A8C;
+  --md3-outline-variant: #443357;
+  --md3-outline-variant-rgb: 68 51 87;
+  --md3-error: #F06292;
+  --t-veil-border: #5E358C;
+  --t-surface: #271F30;
+  --t-surface-2: #32283E;
+  --t-surface-3: #413451;
+  --t-line: #50386B;
+  --t-accent: #8E5BC8;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #462F60;
+  --t-on-accent-c: #E0DCE5;
+  --text: #E5E3E8;
+  --text-soft: #A89CB4;
+  --accent: #8E5BC8;
+  --accent-soft: #462F60;
+  --accent-border: #5E358C;
+  --danger: #F06292;
+  --glass-edge: #5E358C;
+  --glass-hi: #fff;
+}
+
+body.theme-kuromi.dark .glass-veil{
+  --t-veil: linear-gradient(160deg,
+            rgb(25 20 31 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+            rgb(33 26 40 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+            rgb(40 32 50 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  background: var(--t-veil);
+}
+body.theme-kuromi.dark .panel, .modal-card, .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-kuromi.dark .panel-header, .modal-header{ border-bottom-color: var(--t-line); }
+body.theme-kuromi.dark .titlebar{ border-bottom-color: var(--t-line); }
+body.theme-kuromi.dark .title-input{ color: var(--text); }
+body.theme-kuromi.dark .title-input.editable{ background: var(--t-surface-2); box-shadow: none; }
+body.theme-kuromi.dark .lock-badge{ background: var(--t-accent-c); border-color: var(--t-line); }
+body.theme-kuromi.dark .tb-btn:hover{ background: var(--t-surface-3); }
+body.theme-kuromi.dark .group-title{ color: var(--text-soft); }
+body.theme-kuromi.dark .item{ border-color: var(--t-line); }
+body.theme-kuromi.dark .item.add-card{ background: var(--t-surface-2); color: var(--text-soft); }
+body.theme-kuromi.dark .item:hover{ border-color: var(--accent-border); }
+body.theme-kuromi.dark .usb-section{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-kuromi.dark .usb-item{ border-color: var(--t-line); }
+body.theme-kuromi.dark .usb-item:hover{ background: var(--t-surface-3); border-color: var(--accent-border); }
+body.theme-kuromi.dark .usb-hint{ border-top-color: var(--t-line); color: var(--text-soft); }
+body.theme-kuromi.dark .usb-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-kuromi.dark .ghost-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-kuromi.dark .danger-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-kuromi.dark .pick-btn{ background: var(--t-accent-c); }
+body.theme-kuromi.dark .size-controls button{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-kuromi.dark .usb-btn:hover, .ghost-btn:hover, .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-kuromi.dark .opacity-bar{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-kuromi.dark .seg{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-kuromi.dark .icon-preview{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-kuromi.dark .row input[type="text"], .row select, .field input, .field select, .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-kuromi.dark .group-list li{ border-bottom-color: var(--t-line); }
+body.theme-kuromi.dark .hint{ color: var(--text-soft); }
+body.theme-kuromi.dark .content{ scrollbar-color: var(--t-line) transparent; }
+body.theme-kuromi.dark .content::-webkit-scrollbar-thumb{ background: var(--t-line); }
+

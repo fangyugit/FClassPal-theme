@@ -287,3 +287,96 @@ body.theme-whale .modal-card::before{
 @keyframes t-panel-whale { from { opacity: 0; transform: translateY(10px) scale(0.94); } }
 
 @keyframes t-toast-whale { from { opacity: 0; transform: translateY(16px) scale(0.9); } }
+
+/* ============================================================
+ * 深色模式适配（body.theme-whale.dark）：压暗表面/文字/描边/面纱，
+ * 强调色一律不动。生成：_rt/_darkify.py（幂等）。
+ * ============================================================ */
+body.theme-whale.dark{
+  --md3-primary: #3E6FD8;
+  --md3-on-primary: #ffffff;
+  --md3-primary-container: #273C68;
+  --md3-primary-container-rgb: 39 60 104;
+  --md3-on-primary-container: #DCDFE5;
+  --md3-on-primary-container-rgb: 220 223 229;
+  --md3-secondary: #3358B4;
+  --md3-secondary-container: #273C68;
+  --md3-secondary-container-rgb: 39 60 104;
+  --md3-on-secondary-container: #DCDFE5;
+  --md3-on-secondary-container-rgb: 220 223 229;
+  --md3-tertiary: #5E88E2;
+  --md3-tertiary-container: #273C68;
+  --md3-tertiary-container-rgb: 39 60 104;
+  --md3-on-tertiary-container: #DCDFE5;
+  --md3-on-tertiary-container-rgb: 220 223 229;
+  --md3-surface: #1F2430;
+  --md3-surface-rgb: 31 36 48;
+  --md3-surface-dim: #171B24;
+  --md3-surface-container: #282F3E;
+  --md3-surface-container-rgb: 40 47 62;
+  --md3-surface-container-high: #343D51;
+  --md3-surface-container-high-rgb: 52 61 81;
+  --md3-on-surface: #E3E5E8;
+  --md3-on-surface-rgb: 227 229 232;
+  --md3-on-surface-variant: #9CA4B4;
+  --md3-on-surface-variant-rgb: 156 164 180;
+  --md3-outline: #4A5F8C;
+  --md3-outline-variant: #333E57;
+  --md3-outline-variant-rgb: 51 62 87;
+  --md3-error: #3E6FD8;
+  --t-veil-border: #304F91;
+  --t-surface: #1F2430;
+  --t-surface-2: #282F3E;
+  --t-surface-3: #343D51;
+  --t-line: #38486B;
+  --t-accent: #3E6FD8;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #273C68;
+  --t-on-accent-c: #DCDFE5;
+  --text: #E3E5E8;
+  --text-soft: #9CA4B4;
+  --accent: #3E6FD8;
+  --accent-soft: #273C68;
+  --accent-border: #304F91;
+  --danger: #3E6FD8;
+  --glass-edge: #304F91;
+  --glass-hi: #fff;
+}
+
+body.theme-whale.dark .glass-veil{
+  --t-veil: linear-gradient(160deg,
+            rgb(20 23 31 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+            rgb(26 30 40 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+            rgb(32 38 50 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  background: var(--t-veil);
+}
+body.theme-whale.dark .panel, .modal-card, .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-whale.dark .panel-header, .modal-header{ border-bottom-color: var(--t-line); }
+body.theme-whale.dark .titlebar{ border-bottom-color: var(--t-line); }
+body.theme-whale.dark .title-input{ color: var(--text); }
+body.theme-whale.dark .title-input.editable{ background: var(--t-surface-2); box-shadow: none; }
+body.theme-whale.dark .lock-badge{ background: var(--t-accent-c); border-color: var(--t-line); }
+body.theme-whale.dark .tb-btn:hover{ background: var(--t-surface-3); }
+body.theme-whale.dark .group-title{ color: var(--text-soft); }
+body.theme-whale.dark .item{ border-color: var(--t-line); }
+body.theme-whale.dark .item.add-card{ background: var(--t-surface-2); color: var(--text-soft); }
+body.theme-whale.dark .item:hover{ border-color: var(--accent-border); }
+body.theme-whale.dark .usb-section{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-whale.dark .usb-item{ border-color: var(--t-line); }
+body.theme-whale.dark .usb-item:hover{ background: var(--t-surface-3); border-color: var(--accent-border); }
+body.theme-whale.dark .usb-hint{ border-top-color: var(--t-line); color: var(--text-soft); }
+body.theme-whale.dark .usb-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-whale.dark .ghost-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-whale.dark .danger-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-whale.dark .pick-btn{ background: var(--t-accent-c); }
+body.theme-whale.dark .size-controls button{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-whale.dark .usb-btn:hover, .ghost-btn:hover, .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-whale.dark .opacity-bar{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-whale.dark .seg{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-whale.dark .icon-preview{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-whale.dark .row input[type="text"], .row select, .field input, .field select, .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-whale.dark .group-list li{ border-bottom-color: var(--t-line); }
+body.theme-whale.dark .hint{ color: var(--text-soft); }
+body.theme-whale.dark .content{ scrollbar-color: var(--t-line) transparent; }
+body.theme-whale.dark .content::-webkit-scrollbar-thumb{ background: var(--t-line); }
+
