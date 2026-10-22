@@ -350,8 +350,11 @@ body.theme-NaiWa.dark .glass-veil{
             rgb(50 40 32 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
   background: var(--t-veil);
 }
-body.theme-NaiWa.dark .panel, .modal-card, .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
-body.theme-NaiWa.dark .panel-header, .modal-header{ border-bottom-color: var(--t-line); }
+body.theme-NaiWa.dark .panel{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-NaiWa.dark .modal-card{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-NaiWa.dark .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-NaiWa.dark .panel-header{ border-bottom-color: var(--t-line); }
+body.theme-NaiWa.dark .modal-header{ border-bottom-color: var(--t-line); }
 body.theme-NaiWa.dark .titlebar{ border-bottom-color: var(--t-line); }
 body.theme-NaiWa.dark .title-input{ color: var(--text); }
 body.theme-NaiWa.dark .title-input.editable{ background: var(--t-surface-2); box-shadow: none; }
@@ -370,11 +373,17 @@ body.theme-NaiWa.dark .ghost-btn{ background: var(--t-surface-3); border-color: 
 body.theme-NaiWa.dark .danger-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
 body.theme-NaiWa.dark .pick-btn{ background: var(--t-accent-c); }
 body.theme-NaiWa.dark .size-controls button{ background: var(--t-surface-3); border-color: var(--t-line); }
-body.theme-NaiWa.dark .usb-btn:hover, .ghost-btn:hover, .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-NaiWa.dark .usb-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-NaiWa.dark .ghost-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-NaiWa.dark .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
 body.theme-NaiWa.dark .opacity-bar{ background: var(--t-surface-3); border-color: var(--t-line); }
 body.theme-NaiWa.dark .seg{ background: var(--t-surface-2); border-color: var(--t-line); }
 body.theme-NaiWa.dark .icon-preview{ background: var(--t-surface-2); border-color: var(--t-line); }
-body.theme-NaiWa.dark .row input[type="text"], .row select, .field input, .field select, .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-NaiWa.dark .row input[type="text"]{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-NaiWa.dark .row select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-NaiWa.dark .field input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-NaiWa.dark .field select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-NaiWa.dark .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
 body.theme-NaiWa.dark .group-list li{ border-bottom-color: var(--t-line); }
 body.theme-NaiWa.dark .hint{ color: var(--text-soft); }
 body.theme-NaiWa.dark .content{ scrollbar-color: var(--t-line) transparent; }

@@ -350,8 +350,11 @@ body.theme-pochacco.dark .glass-veil{
             rgb(32 40 50 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
   background: var(--t-veil);
 }
-body.theme-pochacco.dark .panel, .modal-card, .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
-body.theme-pochacco.dark .panel-header, .modal-header{ border-bottom-color: var(--t-line); }
+body.theme-pochacco.dark .panel{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-pochacco.dark .modal-card{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-pochacco.dark .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-pochacco.dark .panel-header{ border-bottom-color: var(--t-line); }
+body.theme-pochacco.dark .modal-header{ border-bottom-color: var(--t-line); }
 body.theme-pochacco.dark .titlebar{ border-bottom-color: var(--t-line); }
 body.theme-pochacco.dark .title-input{ color: var(--text); }
 body.theme-pochacco.dark .title-input.editable{ background: var(--t-surface-2); box-shadow: none; }
@@ -370,11 +373,17 @@ body.theme-pochacco.dark .ghost-btn{ background: var(--t-surface-3); border-colo
 body.theme-pochacco.dark .danger-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
 body.theme-pochacco.dark .pick-btn{ background: var(--t-accent-c); }
 body.theme-pochacco.dark .size-controls button{ background: var(--t-surface-3); border-color: var(--t-line); }
-body.theme-pochacco.dark .usb-btn:hover, .ghost-btn:hover, .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-pochacco.dark .usb-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-pochacco.dark .ghost-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-pochacco.dark .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
 body.theme-pochacco.dark .opacity-bar{ background: var(--t-surface-3); border-color: var(--t-line); }
 body.theme-pochacco.dark .seg{ background: var(--t-surface-2); border-color: var(--t-line); }
 body.theme-pochacco.dark .icon-preview{ background: var(--t-surface-2); border-color: var(--t-line); }
-body.theme-pochacco.dark .row input[type="text"], .row select, .field input, .field select, .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-pochacco.dark .row input[type="text"]{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-pochacco.dark .row select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-pochacco.dark .field input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-pochacco.dark .field select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-pochacco.dark .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
 body.theme-pochacco.dark .group-list li{ border-bottom-color: var(--t-line); }
 body.theme-pochacco.dark .hint{ color: var(--text-soft); }
 body.theme-pochacco.dark .content{ scrollbar-color: var(--t-line) transparent; }

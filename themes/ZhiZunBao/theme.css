@@ -1,0 +1,377 @@
+/* ============================================================
+ * FClassPal 主题包 · 至尊宝（ZhiZunBao）
+ * 大话西游名场面：噘嘴指下巴的红衣少年。
+ * 暖奶油底 + 大红主色 + 鎏金次色，圆角贴纸风。
+ * ------------------------------------------------------------
+ * 打包规范见仓库 SPEC.md。选择器一律以 body.theme-ZhiZunBao 开头，
+ * 素材引号里写 assets/<文件名>，加载器会改写成应用内的绝对路径。
+ * ============================================================ */
+body.theme-ZhiZunBao{
+  /* 角色扮演主题：配色不跟壁纸走，直接钉死 --md3-* 角色 */
+  --md3-primary: #BF1E3F;            --md3-primary-rgb: 191 30 63;
+  --md3-on-primary: #ffffff;         --md3-on-primary-rgb: 255 255 255;
+  --md3-primary-container: #FFDAD2;  --md3-primary-container-rgb: 255 218 210;
+  --md3-on-primary-container: #7A152B; --md3-on-primary-container-rgb: 122 21 43;
+  --md3-secondary: #D98E2B;          --md3-secondary-rgb: 217 142 43;
+  --md3-secondary-container: #FFE8C2; --md3-secondary-container-rgb: 255 232 194;
+  --md3-on-secondary-container: #6B4A12; --md3-on-secondary-container-rgb: 107 74 18;
+  --md3-tertiary: #E0A63C;           --md3-tertiary-rgb: 224 166 60;
+  --md3-tertiary-container: #FFEFC8; --md3-tertiary-container-rgb: 255 239 200;
+  --md3-on-tertiary-container: #6E5410; --md3-on-tertiary-container-rgb: 110 84 16;
+  --md3-surface: #FFF9F0;            --md3-surface-rgb: 255 249 240;
+  --md3-surface-dim: #F0E2D0;
+  --md3-surface-container: #FFF1DE;  --md3-surface-container-rgb: 255 241 222;
+  --md3-surface-container-high: #FFE5C6; --md3-surface-container-high-rgb: 255 229 198;
+  --md3-on-surface: #54382A;         --md3-on-surface-rgb: 84 56 42;
+  --md3-on-surface-variant: #A0765C; --md3-on-surface-variant-rgb: 160 118 92;
+  --md3-outline: #E0B494;
+  --md3-outline-variant: #F5DFC8;    --md3-outline-variant-rgb: 245 223 200;
+  --md3-error: #BF1E3F;              --md3-error-rgb: 191 30 63;
+  --md3-on-error: #ffffff;           --md3-on-error-rgb: 255 255 255;
+
+  --radius: 28px;
+  --t-r-win: 28px; --t-r-card: 24px; --t-r-ctl: 18px; --t-r-small: 14px;
+  --t-btn-r: 999px;
+  --t-blur: blur(18px) saturate(140%);
+  --t-veil-border: #F0C8A8;
+  --t-veil-shadow: inset 0 1px 0 #fff, 0 20px 44px -22px rgb(191 30 63 / 0.38);
+  --t-surface: #FFFFFF;
+  --t-surface-2: #FFF9F0;
+  --t-surface-3: #FFF1DE;
+  --t-line: #F5DFC8;
+  --t-accent: #BF1E3F;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #FFDAD2;
+  --t-on-accent-c: #7A152B;
+  --t-shadow-hover: 0 12px 28px -12px rgb(191 30 63 / 0.42);
+  --t-shadow-menu: 0 14px 38px -14px rgb(120 60 20 / 0.38);
+  --t-fw-title: 800; --t-fw-name: 600; --t-fw-btn: 700;
+  --t-ease: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-dur: 220ms; --t-dur-mid: 420ms; --t-stagger: 45ms;
+  --text: #54382A;
+  --text-soft: #A0765C;
+  --accent: #BF1E3F;
+  --accent-soft: #FFE8C2;
+  --accent-border: #F0C8A8;
+  --danger: #BF1E3F;
+  --glass-edge: #F0C8A8;
+  --glass-hi: #fff;
+}
+body.theme-ZhiZunBao .glass-warp{
+  filter: none !important; -webkit-filter: none !important;
+  backdrop-filter: var(--t-blur); -webkit-backdrop-filter: var(--t-blur);
+}
+body.theme-ZhiZunBao .sheen, body.theme-ZhiZunBao .lg-border{ display: none !important; }
+body.theme-ZhiZunBao .glass-veil{
+  /* --t-veil 必须声明在这一层（--glass-alpha 写在 #widget 上，body 取不到） */
+  --t-veil: linear-gradient(160deg,
+              rgb(255 252 246 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+              rgb(255 244 228 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+              rgb(255 232 210 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  border: 2px solid var(--t-veil-border);
+  background: var(--t-veil);
+  box-shadow: var(--t-veil-shadow);
+}
+/* 标题栏 + 右上角至尊宝头像（圆形脸章） */
+body.theme-ZhiZunBao .titlebar{ border-bottom: 2px dotted #F0C8A8; box-shadow: none; padding: 13px 16px; }
+body.theme-ZhiZunBao .titlebar::after{
+  content: ""; position: absolute; right: 56px; top: 3px; width: 32px; height: 32px;
+  border-radius: 50%; background-repeat: no-repeat; background-size: contain; pointer-events: none;
+  background-image: url('assets/zz-face.png');
+  filter: drop-shadow(0 2px 4px rgb(191 30 63 / 0.30));
+}
+/* 主区右下角整张名场面贴纸 */
+body.theme-ZhiZunBao .widget::after{
+  content: ""; position: absolute; right: 10px; bottom: 42px; width: 80px; height: 80px;
+  background: url("assets/zz-full.png") no-repeat center / contain;
+  opacity: 0.7; pointer-events: none; z-index: 1;
+}
+body.theme-ZhiZunBao .title-icon{ filter: none; color: #BF1E3F; }
+body.theme-ZhiZunBao .title-input{ font-weight: 800; letter-spacing: 0.3px; color: #54382A; }
+body.theme-ZhiZunBao .title-input.editable{
+  background: #FFF9F0; border: 2px solid var(--t-accent);
+  border-radius: var(--t-r-ctl); box-shadow: 0 0 0 4px #FFE8C2;
+}
+body.theme-ZhiZunBao .lock-badge{ border-radius: 999px; background: #FFDAD2; border-color: #F0C8A8; color: #BF1E3F; }
+body.theme-ZhiZunBao .tb-btn{ border-radius: 999px; }
+body.theme-ZhiZunBao .tb-btn:hover{ background: #FFF1DE; color: #BF1E3F; }
+/* 分组标题：鎏金圆点当项目符号（内联 SVG，不用 emoji） */
+body.theme-ZhiZunBao .group-title{ font-weight: 800; letter-spacing: 0.4px; color: #A0765C; }
+body.theme-ZhiZunBao .group-title::before{
+  content: ""; display: block; width: 13px; height: 13px; border-radius: 50%;
+  background-repeat: no-repeat; background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23E0A63C'/%3E%3Ccircle cx='8' cy='8' r='2.6' fill='%23BF1E3F'/%3E%3C/svg%3E");
+}
+body.theme-ZhiZunBao .item{
+  border-radius: var(--t-r-card);
+  border: 2px solid var(--t-line);
+  background: var(--t-surface);
+  box-shadow: 0 4px 12px -8px rgb(191 30 63 / 0.32);
+  transition: transform var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), background var(--t-dur) var(--t-ease);
+}
+body.theme-ZhiZunBao .item:active{ transform: scale(0.93) rotate(-1.5deg); background: var(--t-surface-3); }
+body.theme-ZhiZunBao .item:hover{ transform: translateY(-4px) rotate(0.5deg); box-shadow: var(--t-shadow-hover); border-color: #E8A87C; }
+body.theme-ZhiZunBao .item:hover .item-icon{ transform: scale(1.08); color: #fff; }
+body.theme-ZhiZunBao .item:hover .item-icon .ic{ filter: none; }
+body.theme-ZhiZunBao .item:hover .item-name{ color: #BF1E3F; }
+/* 图标底板：奶油金圆形贴纸，悬停变实心红 */
+body.theme-ZhiZunBao .item-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #BF1E3F;
+  border: 2px solid #F0C8A8; box-shadow: none;
+}
+body.theme-ZhiZunBao .item.add-card{ border: 2px dashed #E8A87C; background: #FFF9F0; color: #A0765C; }
+body.theme-ZhiZunBao .item .del-btn{ border-radius: 999px; border: 2px solid #fff; background: #BF1E3F; box-shadow: none; }
+body.theme-ZhiZunBao .usb-section{ position: relative; overflow: hidden; background: var(--t-surface-2); border: 2px solid var(--t-line); border-radius: var(--t-r-win); }
+body.theme-ZhiZunBao .usb-section::after{
+  content: ""; position: absolute; right: 6px; bottom: -6px; width: 48px; height: 56px;
+  background: url('assets/zz-pout.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.96;
+  filter: drop-shadow(0 3px 6px rgb(191 30 63 / 0.25));
+}
+body.theme-ZhiZunBao .usb-item{ background: var(--t-surface); border: 2px solid var(--t-line); border-radius: var(--t-r-ctl); }
+body.theme-ZhiZunBao .usb-item:hover{ background: var(--t-surface-3); border-color: #E8A87C; }
+body.theme-ZhiZunBao .usb-icon{
+  border-radius: 50%; background: var(--t-surface-3); color: #BF1E3F;
+  border: 2px solid #F0C8A8; box-shadow: none;
+}
+body.theme-ZhiZunBao .usb-hint{ border-top: 2px dotted #F0C8A8; color: #A0765C; }
+body.theme-ZhiZunBao .usb-btn, body.theme-ZhiZunBao .primary-btn, body.theme-ZhiZunBao .ghost-btn, body.theme-ZhiZunBao .danger-btn, body.theme-ZhiZunBao .pick-btn, body.theme-ZhiZunBao .text-btn, body.theme-ZhiZunBao .size-controls button{ border-radius: var(--t-btn-r); font-weight: var(--t-fw-btn); letter-spacing: 0.2px; }
+body.theme-ZhiZunBao .usb-btn{ border: 2px solid #F0C8A8; background: #fff; color: #BF1E3F; box-shadow: none; }
+body.theme-ZhiZunBao .usb-btn.primary{ background: #BF1E3F; color: #fff; border-color: #BF1E3F; }
+body.theme-ZhiZunBao .primary-btn{
+  background: #BF1E3F; color: #fff; border: 2px solid #fff;
+  box-shadow: 0 6px 16px -6px rgb(191 30 63 / 0.55);
+}
+body.theme-ZhiZunBao .danger-btn{ background: #fff; color: #BF1E3F; border: 2px solid #E8A87C; box-shadow: none; }
+body.theme-ZhiZunBao .ghost-btn{ background: #fff; color: #A0765C; border: 2px solid #F0C8A8; box-shadow: none; }
+body.theme-ZhiZunBao .pick-btn{ background: #FFE8C2; color: #BF1E3F; border: 2px solid transparent; }
+body.theme-ZhiZunBao .text-btn{ background: transparent; color: #BF1E3F; border: none; }
+body.theme-ZhiZunBao .size-controls button{ background: #fff; color: #BF1E3F; border: 2px solid #F0C8A8; }
+body.theme-ZhiZunBao .usb-btn:hover, body.theme-ZhiZunBao .ghost-btn:hover, body.theme-ZhiZunBao .size-controls button:hover{ background: #FFF1DE; border-color: #E8A87C; }
+body.theme-ZhiZunBao .primary-btn:hover, body.theme-ZhiZunBao .usb-btn.primary:hover{
+    box-shadow: inset 0 0 0 999px rgb(255 255 255 / 0.14), 0 8px 20px -6px rgb(191 30 63 / 0.55); filter: none;
+  }
+body.theme-ZhiZunBao .opacity-bar{
+  background: #fff; border: 2px solid var(--t-line);
+  border-radius: var(--t-r-card); box-shadow: 0 4px 14px -10px rgb(191 30 63 / 0.35);
+}
+body.theme-ZhiZunBao input[type="range"]{ height: 22px; }
+body.theme-ZhiZunBao input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px; border-radius: 999px; background: #FFE8C2;
+}
+body.theme-ZhiZunBao input[type="range"]::-webkit-slider-thumb{
+  width: 20px; height: 20px; margin-top: -6px; border-radius: 50%;
+  background: #BF1E3F; border: 3px solid #fff; box-shadow: 0 2px 6px rgb(191 30 63 / 0.45);
+}
+body.theme-ZhiZunBao .panel, body.theme-ZhiZunBao .modal-card, body.theme-ZhiZunBao .ctx-menu{
+  border-radius: var(--t-r-win);
+  background: #fff;
+  border: 2px solid #F0C8A8;
+  box-shadow: var(--t-shadow-menu);
+}
+body.theme-ZhiZunBao .panel-header, body.theme-ZhiZunBao .modal-header{ border-bottom: 2px dotted #F0C8A8; font-weight: 800; color: #BF1E3F; }
+body.theme-ZhiZunBao .ctx-item{ border-radius: var(--t-r-small); font-weight: 600; }
+body.theme-ZhiZunBao .ctx-danger, body.theme-ZhiZunBao .ctx-danger .ic{ color: #BF1E3F; }
+body.theme-ZhiZunBao .row input[type="text"], body.theme-ZhiZunBao .row select, body.theme-ZhiZunBao .field input, body.theme-ZhiZunBao .field select, body.theme-ZhiZunBao .add-group-row input{
+  border: 2px solid #F0C8A8; border-radius: var(--t-r-ctl);
+  background: #FFF9F0; color: #54382A; font-weight: 600;
+}
+body.theme-ZhiZunBao .row input[type="text"]:focus, body.theme-ZhiZunBao .row select:focus, body.theme-ZhiZunBao .field input:focus, body.theme-ZhiZunBao .field select:focus{ border-color: #BF1E3F; box-shadow: 0 0 0 4px #FFE8C2; }
+body.theme-ZhiZunBao .icon-preview{ border-radius: var(--t-r-ctl); background: #FFF9F0; border-color: #F0C8A8; }
+body.theme-ZhiZunBao .group-list li{ border-bottom: 2px dotted #F0C8A8; }
+/* 设置面板右下角头像水印 */
+body.theme-ZhiZunBao .panel::after{
+  content: ""; position: absolute; right: 10px; bottom: 8px; width: 46px; height: 46px;
+  border-radius: 50%;
+  background: url('assets/zz-face.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 5px rgb(191 30 63 / 0.25));
+}
+body.theme-ZhiZunBao .toast{
+  background: #BF1E3F; color: #fff; border: 2px solid #fff;
+  border-radius: 999px; box-shadow: 0 10px 26px -8px rgb(191 30 63 / 0.55); font-weight: 700;
+}
+body.theme-ZhiZunBao .hint{ color: #A0765C; }
+body.theme-ZhiZunBao .content{ scrollbar-color: #E8A87C transparent; }
+body.theme-ZhiZunBao .content::-webkit-scrollbar-thumb{ background: #E8A87C; border-radius: 999px; }
+body.theme-ZhiZunBao .usb-btn:focus-visible, body.theme-ZhiZunBao .primary-btn:focus-visible, body.theme-ZhiZunBao .ghost-btn:focus-visible, body.theme-ZhiZunBao .pick-btn:focus-visible, body.theme-ZhiZunBao .seg-btn:focus-visible, body.theme-ZhiZunBao .tb-btn:focus-visible{ outline: 2px solid #BF1E3F; outline-offset: 2px; }
+body.theme-ZhiZunBao .usb-btn, body.theme-ZhiZunBao .primary-btn, body.theme-ZhiZunBao .ghost-btn, body.theme-ZhiZunBao .danger-btn, body.theme-ZhiZunBao .pick-btn, body.theme-ZhiZunBao .text-btn, body.theme-ZhiZunBao .size-controls button, body.theme-ZhiZunBao .seg-btn, body.theme-ZhiZunBao .ctx-item, body.theme-ZhiZunBao .usb-item, body.theme-ZhiZunBao .row input[type="text"], body.theme-ZhiZunBao .row select{
+  transition: background var(--t-dur) var(--t-ease), color var(--t-dur) var(--t-ease),
+              border-color var(--t-dur) var(--t-ease), box-shadow var(--t-dur) var(--t-ease),
+              transform var(--t-dur) var(--t-ease);
+}
+body.theme-ZhiZunBao .seg{
+  background: #FFF9F0; border: 2px solid #F0C8A8; border-radius: 999px;
+}
+body.theme-ZhiZunBao .seg-btn{ color: #A0765C; font-weight: 700; border-radius: 999px; }
+body.theme-ZhiZunBao .seg-btn[aria-pressed="true"]{
+  background: #BF1E3F; color: #fff; font-weight: 800; box-shadow: 0 3px 10px -3px rgb(191 30 63 / 0.55);
+}
+/* ---- 贴图位：主区左下噘嘴特写、USB 区左侧头像、编辑弹窗左右贴纸 ----
+ * 全部 pointer-events:none，不挡内容。 */
+body.theme-ZhiZunBao .glass-veil::before{
+  content: ""; position: absolute; left: 10px; bottom: 46px; width: 50px; height: 58px;
+  background: url("assets/zz-pout.png") no-repeat center / contain;
+  opacity: 0.55; pointer-events: none;
+}
+body.theme-ZhiZunBao .usb-section::before{
+  content: ""; position: absolute; left: 8px; bottom: -4px; width: 42px; height: 50px;
+  border-radius: 50%;
+  background: url('assets/zz-face.png') no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.92;
+  filter: drop-shadow(0 3px 6px rgb(191 30 63 / 0.22));
+}
+body.theme-ZhiZunBao .panel::before{
+  content: ""; position: absolute; left: 10px; bottom: 8px; width: 38px; height: 44px;
+  background: url('assets/zz-pout.png') no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.85;
+  filter: drop-shadow(0 2px 5px rgb(191 30 63 / 0.20));
+}
+body.theme-ZhiZunBao .modal-card{ position: relative; overflow: hidden; }
+body.theme-ZhiZunBao .modal-card::after{
+  content: ""; position: absolute; right: 8px; bottom: 6px; width: 42px; height: 42px;
+  border-radius: 50%;
+  background: url("assets/zz-face.png") no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 5px rgb(191 30 63 / 0.22));
+}
+body.theme-ZhiZunBao .modal-card::before{
+  content: ""; position: absolute; left: 8px; bottom: 6px; width: 34px; height: 40px;
+  background: url('assets/zz-pout.png') no-repeat bottom left / contain;
+  pointer-events: none; opacity: 0.85;
+  filter: drop-shadow(0 2px 4px rgb(191 30 63 / 0.20));
+}
+/* 右键菜单：噘嘴小贴纸（.ctx-menu 基础已是 fixed，主题不改 position） */
+body.theme-ZhiZunBao .ctx-menu{ overflow: hidden; }
+body.theme-ZhiZunBao .ctx-menu::after{
+  content: ""; position: absolute; right: 4px; bottom: 2px; width: 32px; height: 38px;
+  border-radius: 50%;
+  background: url('assets/zz-face.png') no-repeat bottom right / contain;
+  pointer-events: none; opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgb(191 30 63 / 0.25));
+}
+/* ============================================================
+ * 入场动效（类名 .t-enter 由 app.js 挂）
+ * ※ fill-mode 一律 backwards，绝不用 both/forwards。
+ * ============================================================ */
+body.theme-ZhiZunBao .t-enter{
+  animation-delay: calc(var(--i, 0) * var(--t-stagger));
+  animation-timing-function: var(--t-ease-in);
+  animation-duration: var(--t-dur-mid);
+  animation-fill-mode: backwards;
+}
+body.theme-ZhiZunBao .t-enter{ animation-name: t-in-ZhiZunBao; }
+body.theme-ZhiZunBao .panel, body.theme-ZhiZunBao .modal-card, body.theme-ZhiZunBao .ctx-menu{ animation: t-panel-ZhiZunBao var(--t-dur-mid) var(--t-ease) backwards; transform-origin: top center; }
+body.theme-ZhiZunBao .toast{ animation: t-toast-ZhiZunBao var(--t-dur-mid) var(--t-ease) backwards; }
+
+@keyframes t-in-ZhiZunBao {
+  from { opacity: 0; transform: scale(0.78) rotate(-5deg); }
+}
+
+@keyframes t-panel-ZhiZunBao { from { opacity: 0; transform: scale(0.9) rotate(-2deg); } }
+
+@keyframes t-toast-ZhiZunBao { from { opacity: 0; transform: translateY(14px) scale(0.88) rotate(3deg); } }
+
+/* ============================================================
+ * 深色模式适配（body.theme-ZhiZunBao.dark）：压暗表面/文字/描边/面纱，
+ * 强调色一律不动。生成：_rt/_darkify.py（幂等）。
+ * ============================================================ */
+body.theme-ZhiZunBao.dark{
+  --md3-primary: #BF1E3F;
+  --md3-on-primary: #ffffff;
+  --md3-primary-container: #682734;
+  --md3-primary-container-rgb: 104 39 52;
+  --md3-on-primary-container: #E5DCDE;
+  --md3-on-primary-container-rgb: 229 220 222;
+  --md3-secondary: #D98E2B;
+  --md3-secondary-container: #682734;
+  --md3-secondary-container-rgb: 104 39 52;
+  --md3-on-secondary-container: #E5DCDE;
+  --md3-on-secondary-container-rgb: 229 220 222;
+  --md3-tertiary: #E0A63C;
+  --md3-tertiary-container: #682734;
+  --md3-tertiary-container-rgb: 104 39 52;
+  --md3-on-tertiary-container: #E5DCDE;
+  --md3-on-tertiary-container-rgb: 229 220 222;
+  --md3-surface: #301F22;
+  --md3-surface-rgb: 48 31 34;
+  --md3-surface-dim: #24171A;
+  --md3-surface-container: #3E282C;
+  --md3-surface-container-rgb: 62 40 44;
+  --md3-surface-container-high: #51343A;
+  --md3-surface-container-high-rgb: 81 52 58;
+  --md3-on-surface: #E8E3E4;
+  --md3-on-surface-rgb: 232 227 228;
+  --md3-on-surface-variant: #B49CA1;
+  --md3-on-surface-variant-rgb: 180 156 161;
+  --md3-outline: #8C4A58;
+  --md3-outline-variant: #57333A;
+  --md3-outline-variant-rgb: 87 51 58;
+  --md3-error: #BF1E3F;
+  --t-veil-border: #913044;
+  --t-surface: #301F22;
+  --t-surface-2: #3E282C;
+  --t-surface-3: #51343A;
+  --t-line: #6B3843;
+  --t-accent: #BF1E3F;
+  --t-on-accent: #ffffff;
+  --t-accent-c: #682734;
+  --t-on-accent-c: #E5DCDE;
+  --text: #E8E3E4;
+  --text-soft: #B49CA1;
+  --accent: #BF1E3F;
+  --accent-soft: #682734;
+  --accent-border: #913044;
+  --danger: #BF1E3F;
+  --glass-edge: #913044;
+  --glass-hi: #fff;
+}
+
+body.theme-ZhiZunBao.dark .glass-veil{
+  --t-veil: linear-gradient(160deg,
+            rgb(31 20 22 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
+            rgb(40 26 29 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
+            rgb(50 32 36 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+  background: var(--t-veil);
+}
+body.theme-ZhiZunBao.dark .panel{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .modal-card{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .panel-header{ border-bottom-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .modal-header{ border-bottom-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .titlebar{ border-bottom-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .title-input{ color: var(--text); }
+body.theme-ZhiZunBao.dark .title-input.editable{ background: var(--t-surface-2); box-shadow: none; }
+body.theme-ZhiZunBao.dark .lock-badge{ background: var(--t-accent-c); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .tb-btn:hover{ background: var(--t-surface-3); }
+body.theme-ZhiZunBao.dark .group-title{ color: var(--text-soft); }
+body.theme-ZhiZunBao.dark .item{ border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .item.add-card{ background: var(--t-surface-2); color: var(--text-soft); }
+body.theme-ZhiZunBao.dark .item:hover{ border-color: var(--accent-border); }
+body.theme-ZhiZunBao.dark .usb-section{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .usb-item{ border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .usb-item:hover{ background: var(--t-surface-3); border-color: var(--accent-border); }
+body.theme-ZhiZunBao.dark .usb-hint{ border-top-color: var(--t-line); color: var(--text-soft); }
+body.theme-ZhiZunBao.dark .usb-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .ghost-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .danger-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .pick-btn{ background: var(--t-accent-c); }
+body.theme-ZhiZunBao.dark .size-controls button{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .usb-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-ZhiZunBao.dark .ghost-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-ZhiZunBao.dark .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-ZhiZunBao.dark .opacity-bar{ background: var(--t-surface-3); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .seg{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .icon-preview{ background: var(--t-surface-2); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .row input[type="text"]{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .row select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .field input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .field select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .group-list li{ border-bottom-color: var(--t-line); }
+body.theme-ZhiZunBao.dark .hint{ color: var(--text-soft); }
+body.theme-ZhiZunBao.dark .content{ scrollbar-color: var(--t-line) transparent; }
+body.theme-ZhiZunBao.dark .content::-webkit-scrollbar-thumb{ background: var(--t-line); }
+

@@ -334,8 +334,11 @@ body.theme-kuromi.dark .glass-veil{
             rgb(40 32 50 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
   background: var(--t-veil);
 }
-body.theme-kuromi.dark .panel, .modal-card, .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
-body.theme-kuromi.dark .panel-header, .modal-header{ border-bottom-color: var(--t-line); }
+body.theme-kuromi.dark .panel{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-kuromi.dark .modal-card{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-kuromi.dark .ctx-menu{ background: var(--t-surface); border-color: var(--t-line); }
+body.theme-kuromi.dark .panel-header{ border-bottom-color: var(--t-line); }
+body.theme-kuromi.dark .modal-header{ border-bottom-color: var(--t-line); }
 body.theme-kuromi.dark .titlebar{ border-bottom-color: var(--t-line); }
 body.theme-kuromi.dark .title-input{ color: var(--text); }
 body.theme-kuromi.dark .title-input.editable{ background: var(--t-surface-2); box-shadow: none; }
@@ -354,11 +357,17 @@ body.theme-kuromi.dark .ghost-btn{ background: var(--t-surface-3); border-color:
 body.theme-kuromi.dark .danger-btn{ background: var(--t-surface-3); border-color: var(--t-line); }
 body.theme-kuromi.dark .pick-btn{ background: var(--t-accent-c); }
 body.theme-kuromi.dark .size-controls button{ background: var(--t-surface-3); border-color: var(--t-line); }
-body.theme-kuromi.dark .usb-btn:hover, .ghost-btn:hover, .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-kuromi.dark .usb-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-kuromi.dark .ghost-btn:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
+body.theme-kuromi.dark .size-controls button:hover{ background: var(--t-surface-2); border-color: var(--accent-border); }
 body.theme-kuromi.dark .opacity-bar{ background: var(--t-surface-3); border-color: var(--t-line); }
 body.theme-kuromi.dark .seg{ background: var(--t-surface-2); border-color: var(--t-line); }
 body.theme-kuromi.dark .icon-preview{ background: var(--t-surface-2); border-color: var(--t-line); }
-body.theme-kuromi.dark .row input[type="text"], .row select, .field input, .field select, .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-kuromi.dark .row input[type="text"]{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-kuromi.dark .row select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-kuromi.dark .field input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-kuromi.dark .field select{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
+body.theme-kuromi.dark .add-group-row input{ background: var(--t-surface-2); color: var(--text); border-color: var(--t-line); }
 body.theme-kuromi.dark .group-list li{ border-bottom-color: var(--t-line); }
 body.theme-kuromi.dark .hint{ color: var(--text-soft); }
 body.theme-kuromi.dark .content{ scrollbar-color: var(--t-line) transparent; }

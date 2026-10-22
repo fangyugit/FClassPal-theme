@@ -1,0 +1,14 @@
+{
+  "spec": 1,
+  "id": "FeiDuDu",
+  "name": "肥嘟嘟",
+  "version": "1.1.1",
+  "author": "YU",
+  "description": "肥嘟嘟袋鼠：经典目移袋鼠 + 爆火肥嘟嘟本体梗图，美团黄配奶油底。",
+  "accent": "#F7B500",
+  "accentSecondary": "#FF9A3C",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "网络梗图素材，仅供个人非商业使用"
+}
