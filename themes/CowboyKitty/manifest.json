@@ -1,0 +1,16 @@
+{
+  "spec": 1,
+  "id": "CowboyKitty",
+  "name": "牛仔Kitty",
+  "version": "1.3.0",
+  "author": "YU",
+  "description": "牛仔Kitty：网上收集的官方风骑小马/骑独角兽插画 + 深棕帽红领巾摆件，丹宁蓝配皮革棕。",
+  "accent": "#3E6FA8",
+  "accentSecondary": "#B5803F",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "网络图片素材（Sanrio 角色二创/周边图），仅供个人非商业使用",
+  "blur": true,
+  "repo": "fangyugit/FClassPal-theme"
+}

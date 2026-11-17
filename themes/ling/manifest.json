@@ -2,7 +2,7 @@
   "spec": 1,
   "id": "ling",
   "name": "乐正绫",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "author": "YU",
   "description": "Vsinger 乐正绫：红发红瞳的热情系，正红与暖白。",
   "accent": "#D8433F",
@@ -10,5 +10,7 @@
   "fixedPalette": true,
   "minApp": "2.5.0",
   "preview": "preview.png",
-  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）"
+  "license": "CC BY-NC-SA 4.0（同人素材，仅供个人使用）",
+  "blur": true,
+  "repo": "fangyugit/FClassPal-theme"
 }

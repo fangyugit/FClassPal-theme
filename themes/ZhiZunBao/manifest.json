@@ -2,7 +2,7 @@
   "spec": 1,
   "id": "ZhiZunBao",
   "name": "至尊宝",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "author": "YU",
   "description": "至尊宝名场面：噘嘴指下巴的红衣少年，暖奶油底配大红与鎏金。",
   "accent": "#BF1E3F",
@@ -10,5 +10,7 @@
   "fixedPalette": true,
   "minApp": "2.5.0",
   "preview": "preview.png",
-  "license": "用户自供素材，仅供个人使用"
+  "license": "用户自供素材，仅供个人使用",
+  "blur": true,
+  "repo": "fangyugit/FClassPal-theme"
 }

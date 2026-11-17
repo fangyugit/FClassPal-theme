@@ -45,7 +45,7 @@ body.theme-melody{
   --radius: 26px;
   --t-r-win: 26px; --t-r-card: 22px; --t-r-ctl: 16px; --t-r-small: 12px;
   --t-btn-r: 999px;
-  --t-blur: blur(18px) saturate(135%);
+  --t-blur: blur(calc(18px * var(--blur-bg-mul, 1))) saturate(135%);
   --t-veil-border: #EFC2D8;
   --t-veil-shadow: inset 0 1px 0 #fff, 0 20px 44px -22px rgb(236 111 168 / 0.42);
   --t-surface: #FFFFFF;
@@ -78,9 +78,9 @@ body.theme-melody .glass-warp{
 body.theme-melody .sheen, body.theme-melody .lg-border{ display: none !important; }
 body.theme-melody .glass-veil{
   --t-veil: linear-gradient(160deg,
-              rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
-              rgb(255 245 250 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
-              rgb(255 231 240 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+              rgb(255 255 255 / calc(0.42 + 0.58 * var(--glass-alpha))) 0%,
+              rgb(255 245 250 / calc(0.38 + 0.62 * var(--glass-alpha))) 55%,
+              rgb(255 231 240 / calc(0.35 + 0.65 * var(--glass-alpha))) 100%);
   border: 2px solid var(--t-veil-border);
   background: var(--t-veil);
   box-shadow: var(--t-veil-shadow);
@@ -337,9 +337,9 @@ body.theme-melody.dark{
 
 body.theme-melody.dark .glass-veil{
   --t-veil: linear-gradient(160deg,
-            rgb(31 20 25 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
-            rgb(40 26 33 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
-            rgb(50 32 40 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+            rgb(31 20 25 / calc(0.42 + 0.58 * var(--glass-alpha))) 0%,
+            rgb(40 26 33 / calc(0.38 + 0.62 * var(--glass-alpha))) 55%,
+            rgb(50 32 40 / calc(0.35 + 0.65 * var(--glass-alpha))) 100%);
   background: var(--t-veil);
 }
 body.theme-melody.dark .panel{ background: var(--t-surface); border-color: var(--t-line); }

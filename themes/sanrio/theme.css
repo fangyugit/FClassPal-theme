@@ -45,7 +45,7 @@ body.theme-sanrio{
   --radius: 28px;
   --t-r-win: 28px; --t-r-card: 22px; --t-r-ctl: 16px; --t-r-small: 12px;
   --t-btn-r: 999px;
-  --t-blur: blur(22px) saturate(135%);
+  --t-blur: blur(calc(22px * var(--blur-bg-mul, 1))) saturate(135%);
   --t-veil-border: #EFC4DE;
   --t-veil-shadow: inset 0 1px 0 #fff, 0 20px 44px -22px rgb(232 84 138 / 0.40);
   --t-surface: #FFFFFF;
@@ -78,9 +78,9 @@ body.theme-sanrio .glass-warp{
 body.theme-sanrio .sheen, body.theme-sanrio .lg-border{ display: none !important; }
 body.theme-sanrio .glass-veil{
   --t-veil: linear-gradient(160deg,
-              rgb(255 255 255 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
-              rgb(255 243 250 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
-              rgb(243 238 252 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+              rgb(255 255 255 / calc(0.42 + 0.58 * var(--glass-alpha))) 0%,
+              rgb(255 243 250 / calc(0.38 + 0.62 * var(--glass-alpha))) 55%,
+              rgb(243 238 252 / calc(0.35 + 0.65 * var(--glass-alpha))) 100%);
   border: 2px solid var(--t-veil-border);
   background: var(--t-veil);
   box-shadow: var(--t-veil-shadow);
@@ -334,9 +334,9 @@ body.theme-sanrio.dark{
 
 body.theme-sanrio.dark .glass-veil{
   --t-veil: linear-gradient(160deg,
-            rgb(31 20 24 / calc(0.84 + 0.16 * var(--glass-alpha))) 0%,
-            rgb(40 26 31 / calc(0.76 + 0.24 * var(--glass-alpha))) 55%,
-            rgb(50 32 38 / calc(0.70 + 0.30 * var(--glass-alpha))) 100%);
+            rgb(31 20 24 / calc(0.42 + 0.58 * var(--glass-alpha))) 0%,
+            rgb(40 26 31 / calc(0.38 + 0.62 * var(--glass-alpha))) 55%,
+            rgb(50 32 38 / calc(0.35 + 0.65 * var(--glass-alpha))) 100%);
   background: var(--t-veil);
 }
 body.theme-sanrio.dark .panel{ background: var(--t-surface); border-color: var(--t-line); }

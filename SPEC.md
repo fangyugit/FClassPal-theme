@@ -54,7 +54,9 @@ themes/kitty/
   "fixedPalette": true,
   "minApp": "2.5.0",
   "preview": "preview.png",
-  "license": "CC BY-NC-SA 4.0"
+  "license": "CC BY-NC-SA 4.0",
+  "blur": true,
+  "repo": "fangyugit/FClassPal-theme"
 }
 ```
 
@@ -70,6 +72,8 @@ themes/kitty/
 | `accentSecondary` | string | 否 | 次色，仅供展示，不参与渲染。 |
 | `fixedPalette` | bool | 否 | `true`（缺省）= 固定配色，设置里会隐藏取色面板；`false` = 跟随壁纸取色（见 §5.3）。 |
 | `minApp` | string | 否 | 需要的最低本体版本，例如 `2.5.0`。仅作提示，不拦截安装。 |
+| `blur` | bool | 否 | `true` = 这套包适配了 §8 的模糊度标准（theme.css 里的模糊都乘了应用的滑条变量），设置里的模糊滑条对这套包自动解锁；缺省 `false`（滑条置灰）。 |
+| `repo` | string | 否 | `owner/repo` 形式的 GitHub 仓库。主题管理里「检查更新」按钮按它拉最新 release 里的 `<id>.fcpt`，用包内 `version` 比对，真有新版才装；缺省空 = 不显示检查更新。 |
 | `preview` | string | 否 | 预览图文件名，仓库/商店展示用。 |
 | `license` | string | 否 | 素材与样式授权。**用同人素材请务必写明限个人非商业使用。** |
 
@@ -346,3 +350,37 @@ FClassPal → 右键 / 长按 → 设置 → 主题 → **导入主题包**，�
 - `spec 1` 自 FClassPal 2.5.0 起支持。
 - 本体会忽略它不认识的 manifest 字段（前向兼容），所以给新字段加注释说明是安全的。
 - 主题包不执行任何代码 —— 只有 CSS 与图片，没有 JS 入口。
+
+---
+
+## 8. 模糊度标准（spec 1 追加，FClassPal 2.6.8-beta2 起）
+
+本体的模糊度有三根滑条，分别驱动三个 CSS 变量（都挂在 `body` 上，包里直接 `var()` 读）：
+
+| 滑条 | 变量 | 管什么 |
+| --- | --- | --- |
+| 组件模糊度 | `--blur-mul, 1` | 设置面板 / 右键菜单 / 弹窗 / 提示条 / 滑条 |
+| 快捷方式周围 | `--blur-item-mul, 1` | `.item` 图标卡片的 backdrop |
+| 主界面背景模糊度 | `--blur-bg-mul, 1` | 主界面那块大玻璃（`.glass-warp`） |
+
+量程都是 0~2，`1 = 各主题原档`。
+
+**包要做的只有一件事：把模糊字面量乘上对应变量。** 例：
+
+```css
+/* 对：主界面背景的模糊乘背景档 */
+body.my-theme .glass-warp {
+  --t-blur: blur(calc(20px * var(--blur-bg-mul, 1))) saturate(130%);
+}
+
+/* 错：写死字面量，滑条拖了没反应 */
+body.my-theme .glass-warp { --t-blur: blur(20px) saturate(130%); }
+```
+
+**风格归属自己做主**：模糊量级、饱和度、要不要加噪点/色罩都按这套主题自己的语言来 ——
+要的是"每套主题都有自己风格的模糊"，不是把所有包都改成白玻璃。透明度（面纱颜色里的
+`var(--glass-alpha)`）同理：保留自己的底色，只是把耦合区间放宽到肉眼可见
+（推荐 `calc(F + S * var(--glass-alpha))` 且 `F + S = 1`、`F` 不高于 `0.5`，
+`F` 太大时滑条又没反应了）。
+
+适配完在 manifest 里写 `"blur": true`，应用的模糊滑条才会对这套包解锁。

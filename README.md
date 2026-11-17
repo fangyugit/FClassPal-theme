@@ -46,6 +46,8 @@ FClassPal（[fangyugit/FClassPal](https://github.com/fangyugit/FClassPal)）的*
 - **改色**：改 `body.theme-<id> { … }` token 块里的 `--t-accent` 与 `--md3-*` 角色色；
 - **改形状**：`--t-r-win` / `--t-r-card` / `--t-btn-r` 一处改全套圆角跟随；
 - **改质感**：`--t-blur`、`--t-surface(-2/-3)`、`--t-veil` 控制玻璃与面纱；
+  模糊字面量请乘 `var(--blur-bg-mul,1)` 等滑条变量（标准见 SPEC.md §8），适配后
+  在 manifest 写 `"blur": true`；
 - **换贴纸**：替换 `assets/` 里的 PNG（保持文件名不变最省事）；
 - **做新主题**：复制 `examples/minimal/` 改 `id` 与配色，规范见 [SPEC.md](SPEC.md)。
 
@@ -55,10 +57,10 @@ id 冲突 / 体积上限（24 MB / 400 条目）等多重校验。
 ## 目录结构
 
 ```
-├── SPEC.md          包规范（spec 1）：manifest 字段表 + theme.css 铁律 + 自定义清单
-├── themes/<id>/     13 套主题的源树（manifest.json + theme.css + assets/ + preview.png）
+├── SPEC.md          包规范（spec 1 + 模糊度标准追加）：manifest 字段表 + theme.css 铁律
+├── themes/<id>/     18 套主题的源树（manifest.json + theme.css + assets/ + preview.png）
 ├── examples/        起手示例（minimal / sticker）
-├── tools/           示例素材生成脚本（零依赖 Python）
+├── tools/           打包与素材脚本（零依赖 Python：adapt_blur.py 打包并适配模糊度）
 └── dist/            打包好的 .fcpt（与 Release 资产一致）
 ```
 

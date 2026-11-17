@@ -1,0 +1,16 @@
+{
+  "spec": 1,
+  "id": "BlackKitty",
+  "name": "黑皮Kitty",
+  "version": "1.3.0",
+  "author": "YU",
+  "description": "黑皮Kitty：巧克力肤色 Kitty 头贴与墨镜坐姿贴纸（网图抠图），莓红配深棕。",
+  "accent": "#D0215E",
+  "accentSecondary": "#2B2B2B",
+  "fixedPalette": true,
+  "minApp": "2.5.0",
+  "preview": "preview.png",
+  "license": "网络图片素材（Sanrio 角色二创/周边图），仅供个人非商业使用",
+  "blur": true,
+  "repo": "fangyugit/FClassPal-theme"
+}
